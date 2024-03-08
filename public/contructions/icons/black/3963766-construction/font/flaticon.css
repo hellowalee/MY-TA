@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+      display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    display: block;
+}
+
+.flaticon-001-dump-truck:before { content: "\f100"; }
+.flaticon-002-measuring-tape:before { content: "\f101"; }
+.flaticon-003-construction:before { content: "\f102"; }
+.flaticon-004-hammer:before { content: "\f103"; }
+.flaticon-005-nail-gun:before { content: "\f104"; }
+.flaticon-006-plan:before { content: "\f105"; }
+.flaticon-007-screwdriver:before { content: "\f106"; }
+.flaticon-008-circular-saw:before { content: "\f107"; }
+.flaticon-009-crane:before { content: "\f108"; }
+.flaticon-010-caulk-gun:before { content: "\f109"; }
+.flaticon-011-measure:before { content: "\f10a"; }
+.flaticon-012-pincer:before { content: "\f10b"; }
+.flaticon-013-chisel:before { content: "\f10c"; }
+.flaticon-014-wall:before { content: "\f10d"; }
+.flaticon-015-concrete-mixer:before { content: "\f10e"; }
+.flaticon-016-helmet:before { content: "\f10f"; }
+.flaticon-017-wheelbarrow:before { content: "\f110"; }
+.flaticon-018-crane:before { content: "\f111"; }
+.flaticon-019-paint-roller:before { content: "\f112"; }
+.flaticon-020-bulldozer:before { content: "\f113"; }
+.flaticon-021-spirit-level:before { content: "\f114"; }
+.flaticon-022-lamp:before { content: "\f115"; }
+.flaticon-023-hack-saw:before { content: "\f116"; }
+.flaticon-024-paint-bucket:before { content: "\f117"; }
+.flaticon-025-excavator:before { content: "\f118"; }
+.flaticon-026-tool:before { content: "\f119"; }
+.flaticon-027-pliers:before { content: "\f11a"; }
+.flaticon-028-tape:before { content: "\f11b"; }
+.flaticon-029-tool:before { content: "\f11c"; }
+.flaticon-030-shovel:before { content: "\f11d"; }
+.flaticon-031-hand-saw:before { content: "\f11e"; }
+.flaticon-032-ladder:before { content: "\f11f"; }
+.flaticon-033-crane:before { content: "\f120"; }
+.flaticon-034-house:before { content: "\f121"; }
+.flaticon-035-drill:before { content: "\f122"; }
+.flaticon-036-chain-saw:before { content: "\f123"; }
+.flaticon-037-tool-box:before { content: "\f124"; }
+.flaticon-038-brush:before { content: "\f125"; }
+.flaticon-039-traffic-barrier:before { content: "\f126"; }
+.flaticon-040-wrench:before { content: "\f127"; }
+.flaticon-041-pipe:before { content: "\f128"; }
+.flaticon-042-generator:before { content: "\f129"; }
+.flaticon-043-sander:before { content: "\f12a"; }
+.flaticon-044-glasses:before { content: "\f12b"; }
+.flaticon-045-cutter:before { content: "\f12c"; }
+.flaticon-046-mixer-truck:before { content: "\f12d"; }
+.flaticon-047-glove:before { content: "\f12e"; }
+.flaticon-048-road-roller:before { content: "\f12f"; }
+.flaticon-049-measure:before { content: "\f130"; }
+.flaticon-050-welding-mask:before { content: "\f131"; }

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+    display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.flaticon-001-tamping:before { content: "\f100"; }
+.flaticon-002-bulldozer:before { content: "\f101"; }
+.flaticon-003-tractor:before { content: "\f102"; }
+.flaticon-004-ladder-truck:before { content: "\f103"; }
+.flaticon-005-clamshell:before { content: "\f104"; }
+.flaticon-006-tanker-truck:before { content: "\f105"; }
+.flaticon-007-track-trencher:before { content: "\f106"; }
+.flaticon-008-truck:before { content: "\f107"; }
+.flaticon-009-drilling-machine:before { content: "\f108"; }
+.flaticon-010-demolition-crane:before { content: "\f109"; }
+.flaticon-011-truck:before { content: "\f10a"; }
+.flaticon-012-dump-truck:before { content: "\f10b"; }
+.flaticon-013-tow-truck:before { content: "\f10c"; }
+.flaticon-014-loader:before { content: "\f10d"; }
+.flaticon-015-road-roller:before { content: "\f10e"; }
+.flaticon-016-excavator:before { content: "\f10f"; }
+.flaticon-017-concrete-truck:before { content: "\f110"; }
+.flaticon-018-roller:before { content: "\f111"; }
+.flaticon-019-forklift:before { content: "\f112"; }
+.flaticon-020-crane-truck:before { content: "\f113"; }
+
+$font-Flaticon-001-tamping: "\f100";
+$font-Flaticon-002-bulldozer: "\f101";
+$font-Flaticon-003-tractor: "\f102";
+$font-Flaticon-004-ladder-truck: "\f103";
+$font-Flaticon-005-clamshell: "\f104";
+$font-Flaticon-006-tanker-truck: "\f105";
+$font-Flaticon-007-track-trencher: "\f106";
+$font-Flaticon-008-truck: "\f107";
+$font-Flaticon-009-drilling-machine: "\f108";
+$font-Flaticon-010-demolition-crane: "\f109";
+$font-Flaticon-011-truck: "\f10a";
+$font-Flaticon-012-dump-truck: "\f10b";
+$font-Flaticon-013-tow-truck: "\f10c";
+$font-Flaticon-014-loader: "\f10d";
+$font-Flaticon-015-road-roller: "\f10e";
+$font-Flaticon-016-excavator: "\f10f";
+$font-Flaticon-017-concrete-truck: "\f110";
+$font-Flaticon-018-roller: "\f111";
+$font-Flaticon-019-forklift: "\f112";
+$font-Flaticon-020-crane-truck: "\f113";
