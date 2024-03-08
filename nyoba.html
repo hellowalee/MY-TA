@@ -8,10 +8,10 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
-        <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
+        <link rel="stylesheet" href="https://webgissuci.netlify.app/css/leaflet.css">
+        <link rel="stylesheet" href="https://webgissuci.netlify.app/css/qgis2web.css">
+        <link rel="stylesheet" href="https://webgissuci.netlify.app/css/leaflet-search.css">
+        <link rel="stylesheet" href="https://webgissuci.netlify.app/css/Control.OSMGeocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,28 +30,28 @@
  line-height: 0.5;
 }
 	</style>
-	<h1><img src="jember.jpg" alt="logo jember" title="logo jember" width=50px;height=50px"> WEBGIS UMKM DESA SUCI</h1>
+	<h1><img src="https://webgissuci.netlify.app/jember.jpg" alt="logo jember" title="logo jember" width=50px;height=50px"> WEBGIS UMKM DESA SUCI</h1>
         <title></title>
 	</body>
 	</head>
 	<body>
         <div id="map">
         </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/Control.OSMGeocoder.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="data/Kabupaten_Jember_1.js"></script>
-        <script src="data/Kecamatan_Panti_2.js"></script>
-        <script src="data/Desa_Suci_3.js"></script>
-        <script src="data/UMKM_DESA_SUCI_4.js"></script>
+        <script src="https://webgissuci.netlify.app/js/qgis2web_expressions.js"></script>
+        <script src="https://webgissuci.netlify.app/js/leaflet.js"></script>
+        <script src="https://webgissuci.netlify.app/js/leaflet.rotatedMarker.js"></script>
+        <script src="https://webgissuci.netlify.app/js/leaflet.pattern.js"></script>
+        <script src="https://webgissuci.netlify.app/js/leaflet-hash.js"></script>
+        <script src="https://webgissuci.netlify.app/js/Autolinker.min.js"></script>
+        <script src="https://webgissuci.netlify.app/js/rbush.min.js"></script>
+        <script src="https://webgissuci.netlify.app/js/labelgun.min.js"></script>
+        <script src="https://webgissuci.netlify.app/js/labels.js"></script>
+        <script src="https://webgissuci.netlify.app/js/Control.OSMGeocoder.js"></script>
+        <script src="https://webgissuci.netlify.app/js/leaflet-search.js"></script>
+        <script src="https://webgissuci.netlify.app/data/Kabupaten_Jember_1.js"></script>
+        <script src="https://webgissuci.netlify.app/data/Kecamatan_Panti_2.js"></script>
+        <script src="https://webgissuci.netlify.app/data/Desa_Suci_3.js"></script>
+        <script src="https://webgissuci.netlify.app/data/UMKM_DESA_SUCI_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -402,7 +402,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">FolderPath</th>\
-                        <td>' + (feature.properties['FolderPath'] !== null ? '<img src="images/' + String(feature.properties['FolderPath']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                        <td>' + (feature.properties['FolderPath'] !== null ? '<img src="https://webgissuci.netlify.app/images/' + String(feature.properties['FolderPath']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SymbolID</th>\
@@ -463,7 +463,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/UMKM_DESA_SUCI_4.png" /> UMKM_DESA_SUCI': layer_UMKM_DESA_SUCI_4,'<img src="legend/Desa_Suci_3.png" /> Desa_Suci': layer_Desa_Suci_3,'<img src="legend/Kecamatan_Panti_2.png" /> Kecamatan_Panti': layer_Kecamatan_Panti_2,'<img src="legend/Kabupaten_Jember_1.png" /> Kabupaten_Jember': layer_Kabupaten_Jember_1,"Google Hybrid": overlay_GoogleHybrid_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="https://webgissuci.netlify.app/legend/UMKM_DESA_SUCI_4.png" /> UMKM_DESA_SUCI': layer_UMKM_DESA_SUCI_4,'<img src="https://webgissuci.netlify.app/legend/Desa_Suci_3.png" /> Desa_Suci': layer_Desa_Suci_3,'<img src="https://webgissuci.netlify.app/legend/Kecamatan_Panti_2.png" /> Kecamatan_Panti': layer_Kecamatan_Panti_2,'<img src="https://webgissuci.netlify.app/legend/Kabupaten_Jember_1.png" /> Kabupaten_Jember': layer_Kabupaten_Jember_1,"Google Hybrid": overlay_GoogleHybrid_0,},{collapsed:false}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
             layer: layer_UMKM_DESA_SUCI_4,
