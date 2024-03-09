@@ -1,0 +1,235 @@
+.banner {
+	height: 900px;
+	position: relative;
+	overflow: hidden;
+	&::after {
+		@extend %position;
+		@include breakpoint(xl) {
+			width: 100%;
+			height: 100%;
+			background: url(../../assets/images/shape/pattern.png);
+			z-index: -2;
+		}
+	}
+	@include breakpoint(md) {
+		height: 1160px;
+	}
+	@include breakpoint(lg) {
+		height: 770px;
+	}
+	.banner-area {
+		@include breakpoint(lg) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+		.banner-content {
+			max-width: 450px;
+			position: relative;
+			z-index: 1;
+			@include breakpoint(max-lg) {
+				transform: translateY(130px);
+			}
+			@include breakpoint(max-sm) {
+				transform: translateY(100px);
+			}
+			@include breakpoint(xl) {
+				margin-top: 130px;
+			}
+			h1 {
+				font-weight: 400;
+				line-height: 42px;
+				margin: 0;
+				@include breakpoint(sm) {
+					line-height: 70px;
+				}
+				span {
+					text-transform: capitalize;
+					color: $theme-color;
+					font-weight: 700;
+				}
+				b {
+					font-weight: 700;
+					color: $title-color;
+				}
+			}
+			.btn {
+				margin-top: 30px;
+				padding: 10px 28px;
+			}
+		}
+		.banner-thumb {
+			position: relative;
+			text-align: center;
+			transform: translateY(180px);
+			@include breakpoint(lg) {
+				transform: translateY(120px);
+			}
+			@include breakpoint(xxl) {
+				transform: translateY(170px);
+			}
+			&::before {
+				@extend %position;
+				@include breakpoint(lg) {
+				    top: -70px;
+				    left: 15px;
+				    background: url(../../assets/images/banner/01.png);
+				    background-repeat: no-repeat;
+				    width: 580px;
+				    height: 500px;
+					animation: animate1 20s infinite linear;
+				}
+			}
+			img {
+				position: relative;
+				z-index: 1;
+			}
+		}
+	}
+	// page header
+	&.page-header {
+		@include breakpoint(lg) {
+			height: 550px;
+		}
+		.banner-area {
+			.banner-content {
+				max-width: 100%;
+				@include breakpoint(xl) {
+					margin-top: 0px;
+				}
+				h1 {
+					span {
+						margin-left: 5px;
+					}
+				}
+				.btn {
+					margin-top: 30px;
+				}
+			}
+			.banner-thumb {
+				&::before {
+				   display: none;
+				}
+				img {}
+			}
+		}
+	}
+}
+
+.banner-bottom {
+    background: $white-color;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 1px solid #fafafa;
+    .banner-bottom-pattan {
+	    background: url(../../assets/images/icon/patten1.png);
+		@extend %position;
+	    width: 50%;
+	    height: 100%;
+	    right: 0;
+	    bottom: 0;
+	}
+	.bottom-wrapper {
+		@extend %flex;
+		justify-content: space-between;
+		@include breakpoint(xxl) {
+			margin: 0 -15px;
+		}
+		.post-item {
+			@extend %flex;
+			align-items: center;
+		    z-index: 1;
+			position: relative;
+			@include breakpoint(max-lg) {
+			    width: 100%;
+			    justify-content: center;
+			    padding: 20px 0;
+			}
+			@include breakpoint(max-md) {
+				width: calc(100% / 2);
+			}
+			@include breakpoint(max-sm) {
+				width: calc(100% / 1);
+			}
+			.post-thumb {
+				padding-right: 15px;
+				@include breakpoint(max-sm) {
+					padding-right: 0px;
+					margin-bottom: 10px;
+					width: 100%;
+					text-align: center;
+				}
+			}
+			.post-content {
+				@include breakpoint(max-sm) {
+					width: 100%;
+					text-align: center;
+				}
+				h5 {
+					margin: 0;
+				}
+			}
+	    }
+	}
+}
+
+
+
+body {
+	position: relative;
+	&.d-shape {
+		.shape-top {
+			background-attachment: fixed;
+		}
+	}
+	&::before {
+		@extend %position;
+	}
+	&::before {
+		@include breakpoint(xl) { 
+			width: 100%;
+			height: 100%;
+			background: url(../../assets/images/banner/bg.png);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			z-index: -1;
+			@include transition($transition);
+		}
+	}
+	.shape-top, .shape-bottom {
+		@extend %position;
+		@include transition($transition);
+	}
+	.shape-top {
+		@include breakpoint(xl) { 
+		    top: 0;
+		    right: 0;
+		    background: url(../../assets/images/shape/01-b.png);
+		    background-repeat: no-repeat !important;
+		    width: 100%;
+		    height: 1920px;
+    		background-position: right top !important;
+    		z-index: 2;
+			background-attachment: auto;
+    	}
+		@include breakpoint(xxl) {
+			background: url(../../assets/images/shape/01.png);
+		}
+	}
+	.shape-bottom {
+		@include breakpoint(xl) { 
+		    bottom: 0;
+		    left: 0;
+		    background: url(../../assets/images/shape/02-b.png);
+		    background-repeat: no-repeat !important;
+		    width: 100%;
+		    height: 1920px;
+    		background-position: left bottom !important;
+    		z-index: 2;
+    	}
+		@include breakpoint(xxl) {
+			background: url(../../assets/images/shape/02.png);
+		}
+	}
+}

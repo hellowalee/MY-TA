@@ -19,9 +19,9 @@ class UserSeeder extends Seeder
             [
                 'id'             => 1,
                 'name'           => 'admin',
-                'email'           => 'maudini.nurwulan@gmail.com',
+                'email'           => 'fiansyahmm@gmail.com',
                 'email_verified_at' => null,
-                'password'       => bcrypt('nurwulanmaudini123'),
+                'password'       => bcrypt('arif1234'),
                 'isAdmin'        => 1,
                 'remember_token' => null,
             ],
