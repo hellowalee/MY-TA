@@ -7,16 +7,36 @@
     <div class="col-md-6">
       <!-- Map Section -->
       <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">PETA LOKASI ASET</h5>
-          <div class="embed-responsive embed-responsive-16by9">
-            <!-- Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key -->
-            <!-- <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/view?key=YOUR_GOOGLE_MAPS_API_KEY&center=latitude,longitude&zoom=15" allowfullscreen></iframe> -->
-            <iframe class="embed-responsive-item" src="/asset/geoapify/{{$asset->id}}" allowfullscreen></iframe>
+          <div class="card-body">
+              <h5 class="card-title">PETA LOKASI ASET</h5>
+              <div class="embed-responsive embed-responsive-16by9">
+                  <!-- Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key -->
+                  <!-- <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/view?key=YOUR_GOOGLE_MAPS_API_KEY&center=latitude,longitude&zoom=15" allowfullscreen></iframe> -->
+                  <iframe id="assetMap" class="embed-responsive-item" src="/asset/geoapify/{{$asset->id}}/osm-bright" allowfullscreen></iframe>
+              </div>
+              <div class="mt-3">
+                  <label for="mapTheme">Pilih Tema Peta:</label>
+                  <select id="mapTheme" class="form-select">
+                      <option value="osm-bright">OSM Bright</option>
+                      <option value="osm-carto">OSM Carto</option>
+                      <option value="dark-matter-purple-roads">Dark Matter Purple Roads</option>
+                      <!-- Add more theme options as needed -->
+                  </select>
+              </div>
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+              <script>
+                  $(document).ready(function() {
+                      $('#mapTheme').change(function() {
+                          var selectedTheme = $(this).val();
+                          $('#assetMap').attr('src', '/asset/geoapify/{{$asset->id}}/' + selectedTheme);
+                          alert('Tema peta telah diubah. Silakan tunggu beberapa saat untuk memuat ulang peta.');
+                      });
+                  });
+              </script>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
+  
 
     <div class="col-md-6">
       <!-- Photo Section -->

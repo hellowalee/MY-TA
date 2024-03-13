@@ -24,10 +24,10 @@ class AssetController extends Controller
         return view('asset.view',compact('asset'));
     }
 
-    public function geoapify($id)
+    public function geoapify($id,$theme)
     {
         $asset=Asset::find($id);
-        return view('asset.geoapify',compact('asset'));
+        return view('asset.geoapify',compact('asset','theme'));
     }
 
     public function search(Request $request)
