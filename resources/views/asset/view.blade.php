@@ -76,7 +76,7 @@
                                 //Menyimpan informasi metadata pada pushpin.
                                 pin.metadata = {
                                     title: 'Keterangan',
-                                    description: 'Ibukota Provinsi Aceh'
+                                    description: '{{$asset->certificate_number}}'
                                 };
 
                                 // Menambah penanganan event click pada pushpin
