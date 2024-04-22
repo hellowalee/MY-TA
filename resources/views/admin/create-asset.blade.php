@@ -13,16 +13,36 @@
             <input type="text" name="registration_number" class="form-control" required>
         </div>
         <div class="form-group">
+            <label for="soil_type">Jenis Tanah</label>
+            <input type="text" name="soil_type" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="product_number">No Produk</label>
+            <input type="text" name="product_number" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="NUP">NUP</label>
+            <input type="text" name="NUP" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="asset_area">Luas Aset</label>
+            <input type="text" name="asset_area" class="form-control" required>
+        </div>
+        <div class="form-group">
             <label for="year_of_acquisition">Tahun Perolehan</label>
-            <input type="text" name="year_of_acquisition" class="form-control" required>
+            <input type="number" name="year_of_acquisition" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="proof_of_ownership">Bukti Kepemilikan</label>
+            <input type="text" name="proof_of_ownership" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="acquisition_value">Nilai Perolehan</label>
             <input type="text" name="acquisition_value" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="asset_area">Luas Aset (m2)</label>
-            <input type="text" name="asset_area" class="form-control" required>
+            <label for="current_asset_value">Nilai Aset Saat Ini</label>
+            <input type="text" name="current_asset_value" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="location_latitude">Latitude Lokasi</label>
@@ -33,11 +53,11 @@
             <input type="text" name="location_longitude" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="allotment">Alokasi</label>
+            <label for="allotment">Pemberian</label>
             <input type="text" name="allotment" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="picture">Gambar</label>
+            <label for="picture">Foto</label>
             <input type="text" name="picture" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
