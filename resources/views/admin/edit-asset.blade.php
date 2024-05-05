@@ -6,7 +6,6 @@
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
             'asset_type' => 'required|string',
-            'product_number' => 'required|string',
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -14,7 +13,7 @@
             'current_asset_value' => 'required|string',
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
-            'allotment' => 'required|string',
+            'allocation' => 'required|string',
             'picture' => 'required|string', --}}
     <h1>Edit Aset</h1>
     <form action="/admin/asset/edit/{{$asset->id}}" method="POST">
@@ -33,7 +32,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="certificate_number">No Sertifikat</label>
+            <label for="certificate_number">No Sertipikat</label>
             <input type="text" name="certificate_number" value="{{ $asset->certificate_number }}" class="form-control">
         </div>
         <div class="form-group">
@@ -41,12 +40,8 @@
             <input type="text" name="registration_number" value="{{ $asset->registration_number }}" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="asset_type">Jenis Asset</label>
+            <label for="asset_type">Jenis Aset</label>
             <input type="text" name="asset_type" value="{{ $asset->asset_type }}" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="product_number">No Produk</label>
-            <input type="text" name="product_number" value="{{ $asset->product_number }}" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="NUP">NUP</label>
@@ -77,8 +72,13 @@
             <input type="text" name="location_longitude" value="{{ $asset->location_longitude }}" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="allotment">Pemberian</label>
-            <input type="text" name="allotment" value="{{ $asset->allotment }}" class="form-control" required>
+            <label for="allocation">Peruntukan</label>
+            <select name="allocation" class="form-control" required>
+                <option value="Sedang Digunakan" {{ $asset->allocation == 'Sedang Digunakan' ? 'selected' : '' }}>Sedang Digunakan</option>
+                <option value="Tidak Sedang Digunakan" {{ $asset->allocation == 'Tidak Sedang Digunakan' ? 'selected' : '' }}>Tidak Sedang Digunakan</option>
+                <option value="Disewakan" {{ $asset->allocation == 'Disewakan' ? 'selected' : '' }}>Disewakan</option>
+                <option value="Lainnya" {{ $asset->allocation == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="picture">Foto</label>

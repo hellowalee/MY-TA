@@ -6,7 +6,6 @@
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
             'asset_type' => 'required|string',
-            'product_number' => 'required|string',
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -14,7 +13,7 @@
             'current_asset_value' => 'required|string',
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
-            'allotment' => 'required|string',
+            'allocation' => 'required|string',
             'picture' => 'required|string', --}}
     <h1>Daftar Aset</h1>
     <a href="/admin/asset/create" class="btn btn-primary">Tambah Aset Baru</a>
@@ -28,10 +27,9 @@
             <thead>
                 <tr>
                     <th>Jenis Hak Tanah</th>
-                    <th>No Sertifikat</th>
+                    <th>No Sertipikat</th>
                     <th>No Registrasi</th>
-                    <th>Jenis Tanah</th>
-                    <th>No Produk</th>
+                    <th>Jenis Aset</th>
                     <th>NUP</th>
                     <th>Luas Aset</th>
                     <th>Tahun Perolehan</th>
@@ -39,7 +37,7 @@
                     <th>Nilai Aset Saat Ini</th>
                     <th>Latitude Lokasi</th>
                     <th>Longitude Lokasi</th>
-                    <th>Penempatan</th>
+                    <th>Alokasi</th>
                     <th>Gambar</th>
                     <th>Action</th>
                 </tr>
@@ -51,7 +49,6 @@
                         <td>{{ $asset->certificate_number }}</td>
                         <td>{{ $asset->registration_number }}</td>
                         <td>{{ $asset->asset_type }}</td>
-                        <td>{{ $asset->product_number }}</td>
                         <td>{{ $asset->NUP }}</td>
                         <td>{{ $asset->asset_area }}</td>
                         <td>{{ $asset->year_of_acquisition }}</td>
@@ -59,7 +56,7 @@
                         <td>{{ $asset->current_asset_value }}</td>
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
-                        <td>{{ $asset->allotment }}</td>
+                        <td>{{ $asset->allocation }}</td>
                         <td><img src="{{ $asset->picture }}" alt="Asset Picture" style="max-width: 100px;"></td>
                         <td>
                             <a href="/asset/view/{{$asset->id}}" class="btn btn-primary">View</a>

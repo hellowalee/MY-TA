@@ -18,7 +18,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="certificate_number">No Sertifikat</label>
+            <label for="certificate_number">No Sertipikat</label>
             <input type="text" name="certificate_number" class="form-control">
         </div>
         <div class="form-group">
@@ -28,10 +28,6 @@
         <div class="form-group">
             <label for="asset_type">Jenis Tanah</label>
             <input type="text" name="asset_type" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="product_number">No Produk</label>
-            <input type="text" name="product_number" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="NUP">NUP</label>
@@ -62,8 +58,13 @@
             <input type="text" name="location_longitude" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="allotment">Pemberian</label>
-            <input type="text" name="allotment" class="form-control" required>
+            <label for="allocation">Peruntukan</label>
+            <select name="allocation" class="form-control" required>
+                <option value="Sedang Digunakan">Sedang Digunakan</option>
+                <option value="Tidak Sedang Digunakan">Tidak Sedang Digunakan</option>
+                <option value="Disewakan">Disewakan</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="picture">Foto</label>

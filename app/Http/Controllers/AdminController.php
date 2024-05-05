@@ -48,7 +48,7 @@ class AdminController extends Controller
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
             'asset_type' => 'required|string',
-            'product_number' => 'required|string',
+            
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -56,7 +56,7 @@ class AdminController extends Controller
             'current_asset_value' => 'required|string',
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
-            'allotment' => 'required|string',
+            'allocation' => 'required|string',
             'picture' => 'required|string',
         ]);
 
