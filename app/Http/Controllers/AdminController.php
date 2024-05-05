@@ -44,14 +44,14 @@ class AdminController extends Controller
 
      public function AdminStore(Request $request){
         $validatedData = $request->validate([
-            'certificate_number' => 'required|string',
+            'right_type' => 'required|string',
+            'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
-            'soil_type' => 'required|string',
+            'asset_type' => 'required|string',
             'product_number' => 'required|string',
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
-            'proof_of_ownership' => 'required|string',
             'acquisition_value' => 'required|string',
             'current_asset_value' => 'required|string',
             'location_latitude' => 'required|string',

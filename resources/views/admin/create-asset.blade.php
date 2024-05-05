@@ -5,16 +5,29 @@
     <form action="/admin/asset/create" method="POST">
         @csrf
         <div class="form-group">
+            <label for="right_type">Jenis Hak Tanah</label>
+            <select name="right_type" class="form-control" required>
+                <option value="Hak Milik">Hak Milik</option>
+                <option value="Hak Guna Bangunan">Hak Guna Bangunan</option>
+                <option value="Hak Pakai">Hak Pakai</option>
+                <option value="Hak Guna Usaha">Hak Guna Usaha</option>
+                <option value="Hak Pengelolaan">Hak Pengelolaan</option>
+                <option value="Hak Wakaf">Hak Wakaf</option>
+                <option value="Letter C">Letter C</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="certificate_number">No Sertifikat</label>
-            <input type="text" name="certificate_number" class="form-control" required>
+            <input type="text" name="certificate_number" class="form-control">
         </div>
         <div class="form-group">
             <label for="registration_number">No Registrasi</label>
             <input type="text" name="registration_number" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="soil_type">Jenis Tanah</label>
-            <input type="text" name="soil_type" class="form-control" required>
+            <label for="asset_type">Jenis Tanah</label>
+            <input type="text" name="asset_type" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="product_number">No Produk</label>
@@ -31,10 +44,6 @@
         <div class="form-group">
             <label for="year_of_acquisition">Tahun Perolehan</label>
             <input type="number" name="year_of_acquisition" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="proof_of_ownership">Bukti Kepemilikan</label>
-            <input type="text" name="proof_of_ownership" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="acquisition_value">Nilai Perolehan</label>
