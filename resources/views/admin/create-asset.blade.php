@@ -2,7 +2,7 @@
 @section('navbar_asset','active')
 @section('main')
     <h1>Tambah Aset Baru</h1>
-    <form action="/admin/asset/create" method="POST">
+    <form action="/admin/asset/create" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="right_type">Jenis Hak Tanah</label>
@@ -68,7 +68,7 @@
         </div>
         <div class="form-group">
             <label for="picture">Foto</label>
-            <input type="text" name="picture" class="form-control" required>
+            <input type="file" class="form-control" id="picture" name="picture">
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
     </form>

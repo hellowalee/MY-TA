@@ -48,7 +48,6 @@ class AdminController extends Controller
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
             'asset_type' => 'required|string',
-            
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -57,10 +56,42 @@ class AdminController extends Controller
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
             'allocation' => 'required|string',
-            'picture' => 'required|string',
         ]);
 
-        $asset = Asset::create($validatedData);
+        if ($request->hasFile('picture')) {
+            $request->validate([         
+                'picture' => 'image|mimes:jpeg,png,jpg|nullable',
+            ]);
+        }
+
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $imageName = 'picture'.time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/asset', $imageName); // Store the image in the storage/app/public/images directory
+            // get original root url
+            $picture = '/storage/asset/' . $imageName;
+        }
+        else{
+            $picture = 'https://storage.googleapis.com/fastwork-static/6a19c479-994b-4572-8fb5-95bf378f71e6.jpg';
+        }
+
+        $validatedData['picture'] = $picture;
+        // $asset = Asset::create($validatedData);
+        $asset = Asset::create([
+            'right_type' => $request->right_type,
+            'certificate_number' => $request->certificate_number,
+            'registration_number' => $request->registration_number,
+            'asset_type' => $request->asset_type,
+            'NUP' => $request->NUP,
+            'asset_area' => $request->asset_area,
+            'year_of_acquisition' => $request->year_of_acquisition,
+            'acquisition_value' => $request->acquisition_value,
+            'current_asset_value' => $request->current_asset_value,
+            'location_latitude' => $request->location_latitude,
+            'location_longitude' => $request->location_longitude,
+            'allocation' => $request->allocation,
+            'picture' => $picture,
+        ]);
 
         return redirect('/admin/asset/list/all')->with('success', 'Aset berhasil ditambahkan.');
      }
@@ -91,7 +122,35 @@ class AdminController extends Controller
      }
 
     public function AdminUpdate(Request $request, $id){
-        Asset::where('id', $id)->update($request->except('_token', '_method'));
+        if ($request->hasFile('picture')) {
+            $request->validate([
+                'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|nullable',
+            ]);
+        }
+        
+        $assetData = $request->except(['id', '_token']); // Exclude the 'id' and '_token' fields
+        $asset = Asset::find($request->id);
+
+        // picture
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            if (strpos($asset->picture, '/storage/asset/') !== false) {
+                $imageName = explode('/storage/asset/', $asset->picture)[1];
+                 // Mengecek apakah file sudah ada
+                if (Storage::exists('public/asset/' . $imageName)) {
+                    // Menghapus file yang sudah ada
+                    Storage::delete('public/asset/' . $imageName);
+                }
+            }
+                
+            $imageName = 'picture' . time() . '.' . $image->getClientOriginalExtension();
+            
+            $picture= '/storage/asset/' . $imageName;
+    
+            $image->storeAs('public/asset', $imageName);
+            $assetData['picture'] = $picture;
+        }
+        Asset::where('id', $request->id)->update($assetData);
         return redirect('/admin/asset/list/all')->with('success', 'Aset berhasil diubah.');
     }
 
@@ -108,7 +167,7 @@ class AdminController extends Controller
          }
       }
 
-      public function UserEdit($id, $nickname, $fullname){
+    public function UserEdit($id, $nickname, $fullname){
         $name1 = ucwords($nickname);
         $resume = Resume::all()->where('id', $id)->where('nickname', $name1);
         if(count($resume)>0){
@@ -119,6 +178,25 @@ class AdminController extends Controller
         else{
             return "Data Tidak Ditemukan";
         }
+    }
+
+    public function AdminSymLink(){
+        $linkFolder=public_path('storage');
+        $targetFolder=storage_path('app/public');
+       // Make sure the target folder exists before creating the symlink
+        if (!is_dir($targetFolder)) {
+            die('Target folder does not exist.');
+        }
+
+        // Use shell_exec to execute the ln -s command
+        $command = "ln -s $targetFolder $linkFolder";
+        $result = shell_exec($command);
+
+        if ($result === null) {
+            die('Error creating symlink.');
+        }
+        // ln -s /home/u971422264/domains/akad.in/public_html/storage/app/public /home/u971422264/domains/akad.in/public_html/public/storage
+        echo 'Symlink process successfully completed';
     }
 
 }

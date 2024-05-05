@@ -16,7 +16,7 @@
             'allocation' => 'required|string',
             'picture' => 'required|string', --}}
     <h1>Edit Aset</h1>
-    <form action="/admin/asset/edit/{{$asset->id}}" method="POST">
+    <form action="/admin/asset/edit/{{$asset->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="right_type">Jenis Hak Tanah</label>
@@ -82,7 +82,10 @@
         </div>
         <div class="form-group">
             <label for="picture">Foto</label>
-            <input type="text" name="picture" value="{{ $asset->picture }}" class="form-control" required>
+            <input type="file" name="picture" value="{{ $asset->picture }}" class="form-control">
+            @if($asset->picture != null && Auth::check() && Auth::user()->isAdmin == 1)
+                <a class="btn btn-primary" href="{{ $asset->picture }}" target="_blank">Lihat Foto</a>
+            @endif
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

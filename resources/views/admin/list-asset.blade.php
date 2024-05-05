@@ -57,7 +57,22 @@
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
                         <td>{{ $asset->allocation }}</td>
-                        <td><img src="{{ $asset->picture }}" alt="Asset Picture" style="max-width: 100px;"></td>
+                        <td>
+                            <?php
+                            // jika gambar tida ada http
+                            if (strpos($asset->picture, 'http') === false) {
+                                // replace /storage/asset/ menjadi /storage/public/asset/
+                                // tidak berlaku jika storage di public dihapus
+                                // $asset->picture = str_replace('/storage/asset/', '/storage/public/asset/', $asset->picture);
+                            }
+                            ?>
+                            <img src="
+                            @if ($asset->picture)
+                                {{ asset($asset->picture) }}
+                            @else
+                                {{ asset('storage/assets/no-image.png') }}
+                            @endif
+                            " alt="Asset Picture" style="max-width: 100px;"></td>
                         <td>
                             <a href="/asset/view/{{$asset->id}}" class="btn btn-primary">View</a>
                             <a href="/admin/asset/edit/{{$asset->id}}" class="btn btn-success">Edit</a>
