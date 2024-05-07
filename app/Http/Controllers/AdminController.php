@@ -115,6 +115,8 @@ class AdminController extends Controller
             'location_longitude' => $request->location_longitude,
             'allocation' => $request->allocation,
             'picture' => $picture,
+            'picture1' => $picture1,
+            'picture2' => $picture2,
         ]);
 
         return redirect('/admin/asset/list/all')->with('success', 'Aset berhasil ditambahkan.');
