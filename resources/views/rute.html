@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Informasi Geografis</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Sistem Informasi Geografis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+  <!-- Search Section -->
+  <div class="row my-3">
+    <div class="col-md-6 offset-md-3">
+      <form enctype="multipart/form-data" class="ps-checkout__form" action="/asset/search" method="post">
+        <input type="hidden" name="_token" value="pHIGx8MMZ5NTOv0f7vzTfSTM0EEgrOz4p900seHY">        <div class="input-group w-100">
+          <input id="search" name="search" type="text" class="form-control" placeholder="No Sertifikat / No Registrasi">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Cari Asset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Map Section -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PETA LOKASI ASET</h5>
+                    <div>
+                        <!-- Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key -->
+                        <!-- <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/view?key=YOUR_GOOGLE_MAPS_API_KEY&center=latitude,longitude&zoom=15" allowfullscreen></iframe> -->
+                        <div id="rawmap" style="display: none">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="assetMap" class="embed-responsive-item" src="/asset/geoapify/7/osm-bright" allowfullscreen></iframe>         
+                            </div>
+                            <div id="choosemap">
+                                <div class="mt-5">
+                                    <label for="mapTheme">Pilih Tema Peta:</label>
+                                    <select id="mapTheme" class="form-select">
+                                        <option value="osm-bright">OSM Bright</option>
+                                        <option value="osm-carto">OSM Carto</option>
+                                        <option value="dark-matter-purple-roads">Dark Matter Purple Roads</option>
+                                        <!-- Add more theme options as needed -->
+                                    </select>
+                                </div>
+                                
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#mapTheme').change(function() {
+                                            var selectedTheme = $(this).val();
+                                            $('#assetMap').attr('src', '/asset/geoapify/7/' + selectedTheme);
+                                            alert('Tema peta telah diubah. Silakan tunggu beberapa saat untuk memuat ulang peta.');
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                        <div id="bingmap">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div id="myMap" style="height:500px;"></div>
+                              </div>
+                          </div>
+                      </div>
+                      <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+                      
+                      <script type='text/javascript'>
+                          var map, infobox, directionsManager;
+                      
+                          function GetMap() {
+                              // Mengatur peta
+                              map = new Microsoft.Maps.Map('#myMap', {
+                                  credentials: "U4VD6Xi1NuVkAaN8KvJF~dereRmfzkm5VdVorK5lmlA~Ar4MuDpGzRmqdUtbXYvjm31t06tAU-400GnsVAY8Zna23hb05WjeiHiszdHOEAXU",
+                                  center: new Microsoft.Maps.Location(-8.171147082757747, 111.78210157612254),
+                                  mapTypeId: Microsoft.Maps.MapTypeId.road,
+                                  zoom: 15
+                              });
+                      
+                              // Buat infobox (jendela informasi)
+                              infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+                                  visible: false
+                              });
+                              infobox.setMap(map);
+                      
+                              // Membuat dua titik dan garis jalan
+                              var origin = new Microsoft.Maps.Location(-8.171147082757747, 111.78210157612254);
+                              var distance = 10000; // Jarak dalam meter
+                              var bearing = 90; // Arah dalam derajat (90 derajat ke timur)
+                              var destination = calculateDestination(origin, distance, bearing);
+                      
+                              // Tambahkan pin (marker) untuk kedua titik
+                              addPushpin(origin, 'Keterangan', 'SHP No 4');
+                              addPushpin(destination, 'Keterangan', 'SHP No 5');
+                      
+                              // Buat manajer arah
+                              directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+                      
+                              // Tambahkan titik asal dan tujuan ke manajer arah
+                              directionsManager.addWaypoint(origin);
+                              directionsManager.addWaypoint(destination);
+                      
+                              // Tampilkan loading
+                              $('#loading').show();
+                      
+                              // Hitung rute
+                              directionsManager.calculateDirections();
+                      
+                              // Tangani event ketika rute telah dihitung
+                              Microsoft.Maps.Events.addHandler(directionsManager, 'directionsUpdated', function(e) {
+                                  // Sembunyikan loading saat rute telah dihitung
+                                  $('#loading').hide();
+                              });
+                          }
+                      
+                          // Fungsi untuk menambahkan pin (marker) ke peta
+                          function addPushpin(location, title, description) {
+                              var pin = new Microsoft.Maps.Pushpin(location);
+                      
+                              // Simpan metadata pin
+                              pin.metadata = {
+                                  title: title,
+                                  description: description
+                              };
+                      
+                              // Tangani event klik pada pin
+                              Microsoft.Maps.Events.addHandler(pin, 'click', function(e) {
+                                  infobox.setOptions({
+                                      location: e.target.getLocation(),
+                                      title: e.target.metadata.title,
+                                      description: e.target.metadata.description,
+                                      visible: true
+                                  });
+                              });
+                      
+                              // Tambahkan pin ke entitas peta
+                              map.entities.push(pin);
+                          }
+                      
+                          // Fungsi untuk menghitung titik tujuan dengan jarak dan arah tertentu
+                          function calculateDestination(startLocation, distance, bearing) {
+                              var EarthRadius = 6371000; // Radius bumi dalam meter
+                              var radianBearing = bearing * (Math.PI / 180);
+                      
+                              var lat1 = startLocation.latitude * (Math.PI / 180);
+                              var lon1 = startLocation.longitude * (Math.PI / 180);
+                      
+                              var lat2 = Math.asin(
+                                  Math.sin(lat1) * Math.cos(distance / EarthRadius) +
+                                  Math.cos(lat1) * Math.sin(distance / EarthRadius) * Math.cos(radianBearing)
+                              );
+                      
+                              var lon2 = lon1 + Math.atan2(
+                                  Math.sin(radianBearing) * Math.sin(distance / EarthRadius) * Math.cos(lat1),
+                                  Math.cos(distance / EarthRadius) - Math.sin(lat1) * Math.sin(lat2)
+                              );
+                      
+                              // Konversi kembali ke derajat
+                              var latDeg = lat2 * (180 / Math.PI);
+                              var lonDeg = lon2 * (180 / Math.PI);
+                      
+                              return new Microsoft.Maps.Location(latDeg, lonDeg);
+                          }
+                      </script>
+                      
+                        
+                    </div>
+
+                    <div class="mt-3">
+                        <label for="mapShow">Pilih Jenis Tampilan</label>
+                        <select id="mapShow" class="form-select">
+                            <option value="bingmap">Bing Map</option>
+                            <option value="rawmap">Raw Map</option>
+                        </select>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('#mapShow').change(function() {
+                                alert('Tema peta telah diubah. Silakan tunggu beberapa saat untuk memuat ulang peta.');
+                                var selectedTheme = $(this).val();
+                                if (selectedTheme == 'rawmap') {
+                                    $('#rawmap').show();
+                                    $('#bingmap').hide();
+                                } else if (selectedTheme == 'bingmap') {
+                                    $('#rawmap').hide();
+                                    $('#bingmap').show();
+                                }
+                            });
+                        });
+                    </script>
+
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <!-- Photo Section -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">FOTO BANGUNAN ASET</h5>
+                    <img src="/storage/asset/picture1714915616.jpeg" class="img-fluid" alt="Foto Bangunan Aset">
+                </div>
+            </div>
+
+            <!-- Information Section -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">INFORMASI ASET</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>No Sertifikat:</strong> SHP No 4</li>
+                        <li class="list-group-item"><strong>No Registrasi:</strong> 01.11.04.03</li>
+                        <li class="list-group-item"><strong>Tahun Perolehan:</strong> 1970</li>
+                        <li class="list-group-item"><strong>Nilai Perolehan:</strong> 103800.00</li>
+                        <li class="list-group-item"><strong>Luas Aset:</strong> 4000 m<sup>2</sup></li>
+                        <li class="list-group-item"><strong>Lokasi:</strong> -8.171147082757747,
+                            111.78210157612254</li>
+                        <li class="list-group-item"><strong>Alokasi:</strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+
+<!-- Footer Section -->
+<footer class="footer mt-5 bg-dark text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p>Sistem Informasi Geografis &copy; 2024</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <p>Contact: example@example.com</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

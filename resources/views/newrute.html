@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bing Maps Route Example</title>
+    <style>
+        #myMap {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+    <!-- Muat Bing Maps API -->
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+    <script type='text/javascript'>
+        var map, directionsManager;
+
+        function GetMap() {
+            // Inisialisasi peta dengan kredensial Bing Maps API
+            map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'Your_Bing_Maps_API_Key', // Ganti dengan kunci API Bing Maps Anda
+                center: new Microsoft.Maps.Location(-8.171147, 111.782101),
+                zoom: 13,
+                mapTypeId: Microsoft.Maps.MapTypeId.aerial
+            });
+
+            // Muat modul Directions
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function() {
+                directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+                calculateRoute(); // Mulai kalkulasi rute
+            });
+        }
+
+        function calculateRoute() {
+            // Hapus rute sebelumnya
+            directionsManager.clearAll();
+
+            // Tetapkan titik awal dan tujuan
+            var startLocation = new Microsoft.Maps.Location(-8.171147, 111.782101);
+            var endLocation = new Microsoft.Maps.Location(-8.170147, 111.783102);
+
+            directionsManager.addWaypoint(startLocation);
+            directionsManager.addWaypoint(endLocation);
+
+            // Tetapkan opsi transportasi
+            directionsManager.setRequestOptions({
+                routeMode: Microsoft.Maps.Directions.RouteMode.driving
+            });
+
+            // Menangani pembaruan arah
+            Microsoft.Maps.Events.addHandler(directionsManager, 'directionsUpdated', function(e) {
+                var routeSummary = e.routeSummary[0];
+                var distance = routeSummary.distance; // Jarak dalam km
+                alert('Panjang rute: ' + distance.toFixed(2) + ' km');
+            });
+
+            // Mulai kalkulasi rute
+            directionsManager.calculateDirections();
+        }
+    </script>
+</head>
+<body>
+    <h1>Contoh Rute Bing Maps</h1>
+    <div id="myMap"></div>
+</body>
+</html>
