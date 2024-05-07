@@ -35,15 +35,15 @@ class AssetController extends Controller
         $search = $request->search;
         $asset = Asset::where('certificate_number','like',"%".$search."%")
         ->orWhere('registration_number','like',"%".$search."%")
-        ->orWhere('year_of_acquisition','like',"%".$search."%")
-        ->orWhere('acquisition_value','like',"%".$search."%")
-        ->orWhere('asset_area','like',"%".$search."%")
-        ->orWhere('location_latitude','like',"%".$search."%")
-        ->orWhere('location_longitude','like',"%".$search."%")
-        ->orWhere('allotment','like',"%".$search."%")
-        ->orWhere('picture','like',"%".$search."%")
+        // ->orWhere('year_of_acquisition','like',"%".$search."%")
+        // ->orWhere('acquisition_value','like',"%".$search."%")
+        // ->orWhere('asset_area','like',"%".$search."%")
+        // ->orWhere('location_latitude','like',"%".$search."%")
+        // ->orWhere('location_longitude','like',"%".$search."%")
+        // ->orWhere('allocation','like',"%".$search."%")
+        // ->orWhere('picture','like',"%".$search."%")
         ->get()->first();
-        return redirect('/asset/view/'.$asset->id);
+        return redirect('/asset/list/'.$asset->id);
     }
 
     /**
@@ -73,9 +73,15 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function list($id)
     {
-        //
+        if($id=='all'){
+            $assets=Asset::all();
+        }
+        else{
+            $assets=Asset::where('id',$id)->get();
+        }
+        return view('asset.list',compact('assets'));
     }
 
     /**

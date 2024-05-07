@@ -3,22 +3,6 @@
 @section('main')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Search Section -->
-    <div class="row my-3">
-        <div class="col-md-6 offset-md-3">
-          <form enctype="multipart/form-data" class="ps-checkout__form" action="/asset/search" method="post">
-            @csrf
-            <div class="input-group w-100">
-              <input id="search" name="search" type="text" class="form-control" placeholder="No Sertifikat / No Registrasi">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Cari Asset</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    <!-- End Search Section -->
-
     <!-- ======= About Section ======= -->
     <section id="about" class="about section-bg">
         <div class="container" data-aos="fade-up">

@@ -65,7 +65,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="/asset/view/1">Ruang Aset</a></li>
+          <li><a class="nav-link scrollto" href="/asset/list/all">Ruang Aset</a></li>
           <li><a class="nav-link scrollto" href="#services">Ruang Peta</a></li>
           
           <li><a class="nav-link scrollto" href="/wpadmin">
