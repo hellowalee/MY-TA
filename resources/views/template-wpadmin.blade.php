@@ -3,6 +3,10 @@
 
 <head>
     <title>TA YESI</title>
+    <!-- Favicons -->
+    <link href="{{ asset('theme/assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('theme/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style id="" media="all">

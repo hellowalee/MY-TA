@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geoapify Route Matrix API</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Geoapify Route Matrix API Example</h1>
+    <div id="result"></div>
+
+    <script>
+        // Masukkan kunci API Geoapify Anda di sini
+        const apiKey = "f1c7105b6776456bbea07cea5cb97fbc";
+
+        const body = {
+            "mode": "drive",
+            "sources": [
+                {"location": [0.29088658483271956, 41.428888210134915]},
+                {"location": [3.6067435184261285, 51.515322262551194]},
+                {"location": [1.0242239871765833, 41.57493564781842]}
+            ],
+            "targets": [
+                {"location": [0.29088658483271956, 41.428888210134915]},
+                {"location": [3.6067435184261285, 51.515322262551194]},
+                {"location": [1.0242239871765833, 41.57493564781842]}
+            ]
+        };
+
+        fetch(`https://api.geoapify.com/v1/routematrix?apiKey=${apiKey}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(data => displayResults(data));
+
+        // Fungsi untuk menampilkan hasil respons JSON ke dalam halaman web
+        function displayResults(data) {
+            const resultDiv = document.getElementById('result');
+            
+            // Clear existing content
+            resultDiv.innerHTML = '';
+
+            // Convert JSON data to a readable format
+            const preElement = document.createElement('pre');
+            preElement.textContent = JSON.stringify(data, null, 2);
+            
+            // get sources_to_targets from json
+            // const sources_to_targets = data.sources_to_targets[1][1].distance;
+            // alert(sources_to_targets);
+            // document.getElementById("result").innerHTML = sources_to_targets;
+
+            // Append the formatted data to the result div
+            resultDiv.appendChild(preElement);
+        }
+    </script>
+</body>
+
+</html>

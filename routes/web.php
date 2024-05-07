@@ -38,6 +38,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/asset/edit/{id}', [AdminController::class, 'AdminEdit']);
     Route::post('/admin/asset/edit/{id}', [AdminController::class, 'AdminUpdate']);
     Route::get('/admin/asset/delete/{id}', [AdminController::class, 'AdminDelete']);
+    Route::get('/admin/symlink', [AdminController::class, 'AdminSymLink']);
+    Route::get('/linkstorage', function (){
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        echo 'storage linked!';
+    });
 });
 
 Route::get('/', [AssetController::class, 'index']);
