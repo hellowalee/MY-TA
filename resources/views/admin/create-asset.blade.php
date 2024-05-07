@@ -67,8 +67,16 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="picture">Foto</label>
+            <label for="picture">Foto 1</label>
             <input type="file" class="form-control" id="picture" name="picture">
+        </div>
+        <div class="form-group">
+            <label for="picture1">Foto 2</label>
+            <input type="file" class="form-control" id="picture1" name="picture1">
+        </div>
+        <div class="form-group">
+            <label for="picture2">Foto 3</label>
+            <input type="file" class="form-control" id="picture2" name="picture2">
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
     </form>

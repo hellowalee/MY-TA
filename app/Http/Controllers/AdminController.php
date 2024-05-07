@@ -58,9 +58,11 @@ class AdminController extends Controller
             'allocation' => 'required|string',
         ]);
 
-        if ($request->hasFile('picture')) {
+        if ($request->hasFile('picture')||$request->file('picture1')||$request->file('picture2')) {
             $request->validate([         
                 'picture' => 'image|mimes:jpeg,png,jpg|nullable',
+                'picture1' => 'image|mimes:jpeg,png,jpg|nullable',
+                'picture2' => 'image|mimes:jpeg,png,jpg|nullable',
             ]);
         }
 
@@ -72,7 +74,29 @@ class AdminController extends Controller
             $picture = '/storage/asset/' . $imageName;
         }
         else{
-            $picture = 'https://storage.googleapis.com/fastwork-static/6a19c479-994b-4572-8fb5-95bf378f71e6.jpg';
+            $picture = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+        }
+
+        if ($request->hasFile('picture1')) {
+            $image1 = $request->file('picture1');
+            $imageName1 = 'picture1'.time() . '.' . $image1->getClientOriginalExtension();
+            $image1->storeAs('public/asset', $imageName1); // Store the image in the storage/app/public/images directory
+            // get original root url
+            $picture1 = '/storage/asset/' . $imageName1;
+        }
+        else{
+            $picture1 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+        }
+
+        if ($request->hasFile('picture2')) {
+            $image2 = $request->file('picture2');
+            $imageName2 = 'picture2'.time() . '.' . $image2->getClientOriginalExtension();
+            $image2->storeAs('public/asset', $imageName2); // Store the image in the storage/app/public/images directory
+            // get original root url
+            $picture2 = '/storage/asset/' . $imageName2;
+        }
+        else{
+            $picture2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
         }
 
         $validatedData['picture'] = $picture;
@@ -149,6 +173,44 @@ class AdminController extends Controller
     
             $image->storeAs('public/asset', $imageName);
             $assetData['picture'] = $picture;
+        }
+
+        if ($request->hasFile('picture1')) {
+            $image1 = $request->file('picture1');
+            if (strpos($asset->picture1, '/storage/asset/') !== false) {
+                $imageName1 = explode('/storage/asset/', $asset->picture1)[1];
+                 // Mengecek apakah file sudah ada
+                if (Storage::exists('public/asset/' . $imageName1)) {
+                    // Menghapus file yang sudah ada
+                    Storage::delete('public/asset/' . $imageName1);
+                }
+            }
+                
+            $imageName1 = 'picture1' . time() . '.' . $image1->getClientOriginalExtension();
+            
+            $picture1= '/storage/asset/' . $imageName1;
+    
+            $image1->storeAs('public/asset', $imageName1);
+            $assetData['picture1'] = $picture1;
+        }
+
+        if ($request->hasFile('picture2')) {
+            $image2 = $request->file('picture2');
+            if (strpos($asset->picture2, '/storage/asset/') !== false) {
+                $imageName2 = explode('/storage/asset/', $asset->picture2)[1];
+                 // Mengecek apakah file sudah ada
+                if (Storage::exists('public/asset/' . $imageName2)) {
+                    // Menghapus file yang sudah ada
+                    Storage::delete('public/asset/' . $imageName2);
+                }
+            }
+                
+            $imageName2 = 'picture2' . time() . '.' . $image2->getClientOriginalExtension();
+            
+            $picture2= '/storage/asset/' . $imageName2;
+    
+            $image2->storeAs('public/asset', $imageName2);
+            $assetData['picture2'] = $picture2;
         }
         Asset::where('id', $request->id)->update($assetData);
         return redirect('/admin/asset/list/all')->with('success', 'Aset berhasil diubah.');

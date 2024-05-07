@@ -81,10 +81,24 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="picture">Foto</label>
+            <label for="picture">Foto 1</label>
             <input type="file" name="picture" value="{{ $asset->picture }}" class="form-control">
             @if($asset->picture != null && Auth::check() && Auth::user()->isAdmin == 1)
                 <a class="btn btn-primary" href="{{ $asset->picture }}" target="_blank">Lihat Foto</a>
+            @endif
+        </div>
+        <div class="form-group">
+            <label for="picture1">Foto 2</label>
+            <input type="file" name="picture1" value="{{ $asset->picture1 }}" class="form-control">
+            @if($asset->picture1 != null && Auth::check() && Auth::user()->isAdmin == 1)
+                <a class="btn btn-primary" href="{{ $asset->picture1 }}" target="_blank">Lihat Foto</a>
+            @endif
+        </div>
+        <div class="form-group">
+            <label for="picture2">Foto 3</label>
+            <input type="file" name="picture2" value="{{ $asset->picture2 }}" class="form-control">
+            @if($asset->picture2 != null && Auth::check() && Auth::user()->isAdmin == 1)
+                <a class="btn btn-primary" href="{{ $asset->picture2 }}" target="_blank">Lihat Foto</a>
             @endif
         </div>
         <button type="submit" class="btn btn-primary">Update</button>

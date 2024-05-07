@@ -2,6 +2,26 @@
 @section('navbar_asset', 'active')
 @section('main')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Sertakan Glide.js dari CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+
+    
+    <!-- Tambahkan CSS khusus -->
+    <style>
+        /* Mengatur lebar dan tinggi gambar */
+        .glide__slide img {
+            width: 800px;  /* Set lebar gambar */
+            height: 800px; /* Set tinggi gambar */
+            object-fit: contain; /* Mempertahankan proporsi asli gambar */
+        }
+        
+        /* Mengatur gaya kontainer slide */
+        .glide__slides {
+            display: flex; /* Menggunakan layout flex untuk membuat responsif */
+        }
+    </style>
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about section-bg">
@@ -15,7 +35,49 @@
 
         <div class="row">
             <div class="col-lg-8" data-aos="fade-right" data-aos-delay="100">
-                <img src="{{ $asset->picture }}" class="img-fluid" alt="Foto Bangunan Aset">
+                {{-- <img src="{{ $asset->picture }}" class="img-fluid" alt="Foto Bangunan Aset"> --}}
+                <!-- Carousel container -->
+                <div id="glide" class="glide">
+                    <!-- Track -->
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <!-- Slides dengan gambar -->
+                            <li class="glide__slide">
+                                <img src="{{$asset->picture}}" class="img-fluid" alt="Gambar 1">
+                            </li>
+                            <li class="glide__slide">
+                                <img src="{{$asset->picture1}}" class="img-fluid" alt="Gambar 2">
+                            </li>
+                            <li class="glide__slide">
+                                <img src="{{$asset->picture2}}" class="img-fluid" alt="Gambar 3">
+                            </,>
+                        </ul>
+                    </div>
+
+                    {{-- <!-- Kontrol -->
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Previous</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
+                    </div> --}}
+
+                    <!-- Indikator -->
+                    {{-- <div class="glide__bullets" data-glide-el="controls[nav]">
+                        <button class="glide__bullet" data-glide-dir="=0"></button>
+                        <button class="glide__bullet" data-glide-dir="=1"></button>
+                        <button class="glide__bullet" data-glide-dir="=2"></button>
+                    </div> --}}
+                </div>
+
+                <!-- Inisialisasi Glide.js -->
+                <script>
+                    new Glide('#glide', {
+                        type: 'carousel', // Jenis slide, bisa diubah sesuai kebutuhan
+                        perView: 1, // Jumlah slide per tampilan
+                        autoplay: 3000, // Interval waktu autoplay dalam milidetik
+                        gap: 10, // Jarak antara slide dalam piksel
+                        hoverpause: true, // Pause saat hover di atas slide
+                    }).mount();
+                </script>
 
                 <h5 class="card-title">PETA LOKASI ASET</h5>
                 <div>
@@ -143,12 +205,21 @@
                 <ul>
 
                     <li>
+                        <i class="bx bx-store-alt"></i>
+                        <div>
+                            <h5>Jenis Hak Tanah:</h5>
+                            <p>{{ $asset->right_type }}</p>
+                        </div>
+                    </li>
+
+                    <li>
                     <i class="bx bx-store-alt"></i>
                     <div>
                         <h5>No Sertifikat:</h5>
                         <p>{{ $asset->certificate_number }}</p>
                     </div>
                     </li>
+
                     <li>
                     <i class="bx bx-images"></i>
                     <div>
