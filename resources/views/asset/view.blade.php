@@ -12,14 +12,20 @@
     <style>
         /* Mengatur lebar dan tinggi gambar */
         .glide__slide img {
-            width: 800px;  /* Set lebar gambar */
-            height: 800px; /* Set tinggi gambar */
+            width: 500px;  /* Set lebar gambar */
+            height: 500px; /* Set tinggi gambar */
             object-fit: contain; /* Mempertahankan proporsi asli gambar */
+            margin: 0; /* Menghapus margin bawaan dari tag img */
         }
         
         /* Mengatur gaya kontainer slide */
         .glide__slides {
             display: flex; /* Menggunakan layout flex untuk membuat responsif */
+        }
+
+        .picsize{
+            width: 100%;
+            height: 100%;
         }
     </style>
 
@@ -37,19 +43,19 @@
             <div class="col-lg-8" data-aos="fade-right" data-aos-delay="100">
                 {{-- <img src="{{ $asset->picture }}" class="img-fluid" alt="Foto Bangunan Aset"> --}}
                 <!-- Carousel container -->
-                <div id="glide" class="glide">
+                <div id="glide" class="glide container">
                     <!-- Track -->
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             <!-- Slides dengan gambar -->
                             <li class="glide__slide">
-                                <img src="{{$asset->picture}}" class="img-fluid" alt="Gambar 1">
+                                <img src="{{$asset->picture}}" class="picsize" alt="Gambar 1">
                             </li>
                             <li class="glide__slide">
-                                <img src="{{$asset->picture1}}" class="img-fluid" alt="Gambar 2">
+                                <img src="{{$asset->picture1}}" class="picsize" alt="Gambar 2">
                             </li>
                             <li class="glide__slide">
-                                <img src="{{$asset->picture2}}" class="img-fluid" alt="Gambar 3">
+                                <img src="{{$asset->picture2}}" class="picsize" alt="Gambar 3">
                             </,>
                         </ul>
                     </div>
