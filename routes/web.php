@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/', [AssetController::class, 'index']);
+Route::get('/asset/list/{id}', [AssetController::class, 'list']);
 Route::get('/asset/view/{id}', [AssetController::class, 'view']);
 Route::get('/asset/geoapify/{id}/{theme}', [AssetController::class, 'geoapify']);
 Route::post('/asset/search', [AssetController::class, 'search']);
