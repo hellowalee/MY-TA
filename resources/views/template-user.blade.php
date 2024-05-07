@@ -66,7 +66,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="/">Beranda</a></li>
           <li><a class="nav-link scrollto" href="/asset/list/all">Ruang Aset</a></li>
-          <li><a class="nav-link scrollto" href="#services">Ruang Peta</a></li>
+          <li><a class="nav-link scrollto" href="/asset/map/all">Ruang Peta</a></li>
           
           <li><a class="nav-link scrollto" href="/wpadmin">
             @if (Auth::check()) 

@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">PETA LOKASI ASET</h5>
+        
+        <div>
+          <div id="bingmap">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div id="myMap" style="height:500px;"></div>
+                  </div>
+              </div>
+          </div>
+          <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+          
+          <script type='text/javascript'>
+              var map, infobox, directionsManager;
+          
+              function GetMap() {
+                  // Mengatur peta
+                  map = new Microsoft.Maps.Map('#myMap', {
+                      credentials: "U4VD6Xi1NuVkAaN8KvJF~dereRmfzkm5VdVorK5lmlA~Ar4MuDpGzRmqdUtbXYvjm31t06tAU-400GnsVAY8Zna23hb05WjeiHiszdHOEAXU",
+                      center: new Microsoft.Maps.Location(-8.171147082757747, 111.78210157612254),
+                      mapTypeId: Microsoft.Maps.MapTypeId.road,
+                      zoom: 15
+                  });
+          
+                  // Buat infobox (jendela informasi)
+                  infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+                      visible: false
+                  });
+                  infobox.setMap(map);
+          
+                  var origin=null;
+
+                @foreach($assets as $asset)
+                  origin = new Microsoft.Maps.Location({{$asset->location_latitude}}, {{$asset->location_longitude}});
+                  // Tambahkan pin (marker) untuk kedua titik
+                  addPushpin(origin, 'Keterangan', '{{$asset->location_latitude}}, {{$asset->location_longitude}}');
+                @endforeach
+    
+          
+                  // Tampilkan loading
+                  $('#loading').show();
+          
+
+              }
+          
+              // Fungsi untuk menambahkan pin (marker) ke peta
+              function addPushpin(location, title, description) {
+                  var pin = new Microsoft.Maps.Pushpin(location);
+          
+                  // Simpan metadata pin
+                  pin.metadata = {
+                      title: title,
+                      description: description
+                  };
+          
+                  // Tangani event klik pada pin
+                  Microsoft.Maps.Events.addHandler(pin, 'click', function(e) {
+                      infobox.setOptions({
+                          location: e.target.getLocation(),
+                          title: e.target.metadata.title,
+                          description: e.target.metadata.description,
+                          visible: true
+                      });
+                  });
+          
+                  // Tambahkan pin ke entitas peta
+                  map.entities.push(pin);
+              }
+          </script>
+          
+            
+        </div> 
+        
+    </div>
+</div>

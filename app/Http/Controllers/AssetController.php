@@ -46,6 +46,22 @@ class AssetController extends Controller
         return redirect('/asset/list/'.$asset->id);
     }
 
+    public function map_search(Request $request)
+    {
+        $search = $request->search;
+        $asset = Asset::where('certificate_number','like',"%".$search."%")
+        ->orWhere('registration_number','like',"%".$search."%")
+        // ->orWhere('year_of_acquisition','like',"%".$search."%")
+        // ->orWhere('acquisition_value','like',"%".$search."%")
+        // ->orWhere('asset_area','like',"%".$search."%")
+        // ->orWhere('location_latitude','like',"%".$search."%")
+        // ->orWhere('location_longitude','like',"%".$search."%")
+        // ->orWhere('allocation','like',"%".$search."%")
+        // ->orWhere('picture','like',"%".$search."%")
+        ->get()->first();
+        return redirect('/asset/map/'.$asset->id);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -82,6 +98,18 @@ class AssetController extends Controller
             $assets=Asset::where('id',$id)->get();
         }
         return view('asset.list',compact('assets'));
+    }
+
+    public function map($id){
+        if($id=='all'){
+            $assets=Asset::all();
+            $zoom=13;
+        }
+        else{
+            $assets=Asset::where('id',$id)->get();
+            $zoom=16;
+        }
+        return view('asset.map',['assets'=>$assets,'zoom'=>$zoom]);
     }
 
     /**

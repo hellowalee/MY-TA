@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/', [AssetController::class, 'index']);
 Route::get('/asset/list/{id}', [AssetController::class, 'list']);
 Route::get('/asset/view/{id}', [AssetController::class, 'view']);
+Route::get('/asset/map/{id}', [AssetController::class, 'map']);
 Route::get('/asset/geoapify/{id}/{theme}', [AssetController::class, 'geoapify']);
 Route::post('/asset/search', [AssetController::class, 'search']);
+Route::post('/asset/map/search', [AssetController::class, 'map_search']);
 
