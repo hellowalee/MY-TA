@@ -33,8 +33,8 @@ class AssetController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $asset = Asset::where('certificate_number','like',"%".$search."%")
-        ->orWhere('registration_number','like',"%".$search."%")
+        $asset = Asset::where('NUP','like',"%".$search."%")
+        // ->orWhere('registration_number','like',"%".$search."%")
         // ->orWhere('year_of_acquisition','like',"%".$search."%")
         // ->orWhere('acquisition_value','like',"%".$search."%")
         // ->orWhere('asset_area','like',"%".$search."%")
@@ -49,8 +49,8 @@ class AssetController extends Controller
     public function map_search(Request $request)
     {
         $search = $request->search;
-        $asset = Asset::where('certificate_number','like',"%".$search."%")
-        ->orWhere('registration_number','like',"%".$search."%")
+        $asset = Asset::where('NUP','like',"%".$search."%")
+        // ->orWhere('registration_number','like',"%".$search."%")
         // ->orWhere('year_of_acquisition','like',"%".$search."%")
         // ->orWhere('acquisition_value','like',"%".$search."%")
         // ->orWhere('asset_area','like',"%".$search."%")

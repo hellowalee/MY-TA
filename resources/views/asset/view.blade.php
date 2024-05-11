@@ -152,8 +152,8 @@
 
                             //Menyimpan informasi metadata pada pushpin.
                             pin.metadata = {
-                                title: 'Keterangan',
-                                description: '{{$asset->certificate_number}}'
+                                title: 'NUP',
+                                description: '{{$asset->asset_type}}'
                             };
 
                             // Menambah penanganan event click pada pushpin

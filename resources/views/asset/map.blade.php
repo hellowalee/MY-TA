@@ -14,7 +14,7 @@
       <form enctype="multipart/form-data" class="ps-checkout__form" action="/asset/map/search" method="post">
         @csrf
         <div class="input-group w-100">
-          <input id="search" name="search" type="text" class="form-control" placeholder="No Sertifikat / No Registrasi">
+          <input id="search" name="search" type="text" class="form-control" placeholder="NUP">
           <div class="input-group-append">
             <button class="btn btn-primary" type="submit">Cari Asset</button>
           </div>
@@ -62,7 +62,7 @@
                 @foreach($assets as $asset)
                   origin = new Microsoft.Maps.Location({{$asset->location_latitude}}, {{$asset->location_longitude}});
                   // Tambahkan pin (marker) untuk kedua titik
-                  addPushpin(origin, 'No Sertifikat', '{{ $asset->certificate_number }}');
+                  addPushpin(origin, 'NUP', '{{ $asset->asset_type }}');
                 @endforeach
     
           
