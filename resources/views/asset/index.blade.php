@@ -4,10 +4,8 @@
  <!-- ======= Hero Section ======= -->
  <section id="hero" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>Sistem Informasi <span>Geografis</span></h1>
-      <h2>Selamat Datang
-
-        Selamat datang di Sistem Informasi Pencatatan Aset Desa Ngujang. Sistem ini memiliki berbagai macam layanan yang dapat digunakan untuk memperoleh informasi terkait aset milik Pemerintah Desa Ngujang.
+      <h1>Sistem Informasi <span>Pencatatan Aset</span></h1>
+      <h2>Selamat Datang di Sistem Informasi Pencatatan Aset Desa Ngujang. Sistem ini memiliki berbagai macam layanan yang dapat digunakan untuk memperoleh informasi terkait aset milik Pemerintah Desa Ngujang.
         Layanan yang tersedia seperti Ruang Aset dan Ruang Peta memberikan informasi terkait aset yang dimiliki oleh Pemerintah Desa dan persebaran lokasi aset.</h2>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Pelajari Selengkapnya</a>
@@ -16,7 +14,7 @@
     </div>
   </section><!-- End Hero -->
 
-  <main id="main">
+  {{-- <main id="main">
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="skills">
       <div class="container" data-aos="fade-up">
@@ -740,6 +738,6 @@
       </div>
     </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+  </main><!-- End #main --> --}}
   
 @endsection

@@ -306,7 +306,7 @@
 
                   <li class="nav-item @yield('navbar_asset')">
                     <a class="nav-link" href="/admin/asset/list/all">
-                        Management Asset 
+                        Management Aset 
                     </a>
                   </li>
 

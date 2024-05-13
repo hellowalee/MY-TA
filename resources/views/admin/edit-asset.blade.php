@@ -5,7 +5,7 @@
             'right_type' => 'required|string',
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
-            'asset_type' => 'required|string',
+            'asset_name' => 'required|string',
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -42,6 +42,10 @@
         <div class="form-group">
             <label for="asset_type">Jenis Aset</label>
             <input type="text" name="asset_type" value="{{ $asset->asset_type }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="asset_name">Nama Aset</label>
+            <input type="text" name="asset_name" value="{{ $asset->asset_name }}" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="NUP">NUP</label>

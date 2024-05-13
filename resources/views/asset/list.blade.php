@@ -34,7 +34,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-2 mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title"><a href="/asset/view/{{ $asset->id }}">Jenis Aset: {{ $asset->asset_type }}</a></h4>
+            <h4 class="title"><a href="/asset/view/{{ $asset->id }}">Nama Aset: {{ $asset->asset_name }}</a></h4>
             <p class="description">Luas Aset: {{ $asset->asset_area }}</p>
           </div>
         </div>

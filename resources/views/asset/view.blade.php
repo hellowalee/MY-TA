@@ -35,8 +35,8 @@
 
         <div class="section-title">
             <h2>About</h2>
-            <h3>Informasi <span>Asset</span></h3>
-            <p>Informasi lengkap mengenai asset yang dicari</p>
+            <h3>Informasi <span>Aset</span></h3>
+            <p>Informasi lengkap mengenai aset yang dicari</p>
         </div>
 
         <div class="row">
@@ -152,8 +152,8 @@
 
                             //Menyimpan informasi metadata pada pushpin.
                             pin.metadata = {
-                                title: 'NUP',
-                                description: '{{$asset->asset_type}}'
+                                title: 'Nama Aset',
+                                description: '{{$asset->asset_name}}'
                             };
 
                             // Menambah penanganan event click pada pushpin
@@ -204,7 +204,7 @@
                 </script>
             </div>
             <div class="col-lg-4 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <h3>Detail Asset</h3>
+                <h3>Detail Aset</h3>
                 <p class="fst-italic">
                     Berisi informasi lengkap mengenai asset yang dicari
                 </p>
@@ -270,7 +270,7 @@
                     <i class="bx bx-store-alt"></i>
                     <div>
                         <h5>Alokasi:</h5>
-                        <p>{{ $asset->allotment }}</p>
+                        <p>{{ $asset->allocation }}</p>
                     </div>
                     </li>
 

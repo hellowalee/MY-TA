@@ -5,7 +5,7 @@
             'right_type' => 'required|string',
             'certificate_number' => 'nullable|string',
             'registration_number' => 'required|string',
-            'asset_type' => 'required|string',
+            'asset_name' => 'required|string',
             'NUP' => 'required|string',
             'asset_area' => 'required|string',
             'year_of_acquisition' => 'required|integer',
@@ -30,6 +30,7 @@
                     <th>No Sertipikat</th>
                     <th>No Registrasi</th>
                     <th>Jenis Aset</th>
+                    <th>Nama Aset</th>
                     <th>NUP</th>
                     <th>Luas Aset</th>
                     <th>Tahun Perolehan</th>
@@ -49,6 +50,7 @@
                         <td>{{ $asset->certificate_number }}</td>
                         <td>{{ $asset->registration_number }}</td>
                         <td>{{ $asset->asset_type }}</td>
+                        <td>{{ $asset->asset_name }}</td>
                         <td>{{ $asset->NUP }}</td>
                         <td>{{ $asset->asset_area }}</td>
                         <td>{{ $asset->year_of_acquisition }}</td>

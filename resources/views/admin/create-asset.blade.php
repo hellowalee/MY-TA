@@ -30,6 +30,10 @@
             <input type="text" name="asset_type" class="form-control" required>
         </div>
         <div class="form-group">
+            <label for="asset_name">Nama Tanah</label>
+            <input type="text" name="asset_name" class="form-control" required>
+        </div>
+        <div class="form-group">
             <label for="NUP">NUP</label>
             <input type="text" name="NUP" class="form-control" required>
         </div>

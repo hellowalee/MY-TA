@@ -62,7 +62,7 @@
                 @foreach($assets as $asset)
                   origin = new Microsoft.Maps.Location({{$asset->location_latitude}}, {{$asset->location_longitude}});
                   // Tambahkan pin (marker) untuk kedua titik
-                  addPushpin(origin, 'NUP', '{{ $asset->asset_type }}');
+                  addPushpin(origin, 'Nama Aset', '{{ $asset->asset_name }}', '{{ $asset->asset_type }}');
                 @endforeach
     
           
@@ -73,13 +73,26 @@
               }
           
               // Fungsi untuk menambahkan pin (marker) ke peta
-              function addPushpin(location, title, description) {
-                  var pin = new Microsoft.Maps.Pushpin(location);
+              function addPushpin(location, title, description,type) {
+                   // Gambar ikon merah
+                   var icon =null;
+                   if(type == 'Tanah'){
+                    icon = 'https://static.vecteezy.com/system/resources/thumbnails/018/922/791/small_2x/pin-point-icon-made-from-green-grass-isolated-on-transparent-background-file-png.png';
+                  
+                   }else if(type == 'Bangunan'){
+                     icon = 'https://i.pinimg.com/564x/45/62/82/4562824720fc42c317ff47c1098d4ba6.jpg';
+                    };
+                    
+                    // Buat Pushpin dengan gambar ikon merah
+                    var pin = new Microsoft.Maps.Pushpin(location, {
+                        icon: icon // Mengatur gambar ikon merah
+                    });
+
           
                   // Simpan metadata pin
                   pin.metadata = {
                       title: title,
-                      description: description
+                      description: description,
                   };
           
                   // Tangani event klik pada pin
