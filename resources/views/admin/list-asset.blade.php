@@ -1,29 +1,18 @@
 @extends('template-wpadmin')
 @section('navbar_asset','active')
 @section('main')
-        {{--        
-            'right_type' => 'required|string',
-            'certificate_number' => 'nullable|string',
-            'registration_number' => 'required|string',
-            'asset_name' => 'required|string',
-            'NUP' => 'required|string',
-            'asset_area' => 'required|string',
-            'year_of_acquisition' => 'required|integer',
-            'acquisition_value' => 'required|string',
-            'current_asset_value' => 'required|string',
-            'location_latitude' => 'required|string',
-            'location_longitude' => 'required|string',
-            'allocation' => 'required|string',
-            'picture' => 'required|string', --}}
     <h1>Daftar Aset</h1>
-    <a href="/admin/asset/create" class="btn btn-primary">Tambah Aset Baru</a>
+    <div class="d-flex mb-3">
+        <a href="/admin/asset/create" class="btn btn-primary mr-2">Tambah Aset Baru</a>
+        <button onclick="downloadExcel()" class="btn btn-secondary">Download Excel</button>
+    </div>
     @if (session('status'))
         <div class="alert alert-success mt-5">
             {{ session('status') }}
         </div>
     @endif
     <div class="table-responsive mt-5">
-        <table class="table">
+        <table id="assetTable" class="table">
             <thead>
                 <tr>
                     <th>Jenis Hak Tanah</th>
@@ -61,16 +50,12 @@
                         ?>
                         <td>{{ $asset->acquisition_value }}</td>
                         <td>{{ $asset->current_asset_value }}</td>
-
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
                         <td>{{ $asset->allocation }}</td>
                         <td>
                             <?php
-                            // jika gambar tida ada http
                             if (strpos($asset->picture, 'http') === false) {
-                                // replace /storage/asset/ menjadi /storage/public/asset/
-                                // tidak berlaku jika storage di public dihapus
                                 // $asset->picture = str_replace('/storage/asset/', '/storage/public/asset/', $asset->picture);
                             }
                             ?>
@@ -90,10 +75,38 @@
                 @endforeach
             </tbody>
         </table>
-            {{-- tombol next --}}
+        {{-- tombol next --}}
         <div class="d-flex justify-content-center">
             {{ $assets->links() }}
         </div>
     </div>
+
+    {{-- Tambahkan pustaka SheetJS (xlsx) --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script>
+        function downloadExcel() {
+            // Ambil data dari tabel
+            var table = document.getElementById('assetTable');
+            var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet JS"});
+            
+            // Buat file excel
+            var wbout = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});
+            
+            // Fungsi untuk mengonversi string ke array buffer
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) {
+                    view[i] = s.charCodeAt(i) & 0xFF;
+                }
+                return buf;
+            }
+            
+            // Simpan file
+            saveAs(new Blob([s2ab(wbout)], {type: "application/octet-stream"}), 'assets.xlsx');
+        }
+    </script>
+    {{-- Tambahkan pustaka FileSaver.js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
 @endsection
