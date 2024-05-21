@@ -137,7 +137,7 @@ class AdminController extends Controller
                 ->orWhere('nickname', 'like', '%' . $data . '%')
                 ->orWhere('fullname', 'like', '%' . $data . '%');
         }
-        $asset = $asset->orderBy('id', 'desc')->paginate(10);
+        $asset = $asset->orderBy('NUP', 'desc')->paginate(10);
         return view('admin.list-asset', ['assets' => $asset]);
         // return $asset;
     }
