@@ -41,7 +41,10 @@
         </div>
         <div class="form-group">
             <label for="asset_type">Jenis Aset</label>
-            <input type="text" name="asset_type" value="{{ $asset->asset_type }}" class="form-control" required>
+            <select name="asset_type" class="form-control" required>
+                <option value="Tanah" {{ $asset->asset_type == 'Tanah' ? 'selected' : '' }}>Tanah</option>
+                <option value="Bangunan" {{ $asset->asset_type == 'Bangunan' ? 'selected' : '' }}>Bangunan</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="asset_name">Nama Aset</label>

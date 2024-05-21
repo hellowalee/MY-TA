@@ -27,7 +27,10 @@
         </div>
         <div class="form-group">
             <label for="asset_type">Jenis Tanah</label>
-            <input type="text" name="asset_type" class="form-control" required>
+            <select name="asset_type" class="form-control" required>
+                <option value="Tanah">Tanah</option>
+                <option value="Bangunan">Bangunan</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="asset_name">Nama Tanah</label>
