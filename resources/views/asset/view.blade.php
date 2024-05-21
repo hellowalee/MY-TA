@@ -242,12 +242,25 @@
                     </div>
                     </li>
 
+                    <?php
+                        // ubah format angka menjadi format rupiah
+                        $asset->acquisition_value = "Rp " . number_format($asset->acquisition_value,2,',','.');
+                        $asset->current_asset_value = "Rp " . number_format($asset->current_asset_value,2,',','.');
+                    ?>
                     <li>
                     <i class="bx bx-images"></i>
                     <div>
                         <h5>Nilai Perolehan:</h5>
                         <p>{{ $asset->acquisition_value }}</p>
                     </div>
+                    </li>
+
+                    <li>
+                        <i class="bx bx-images"></i>
+                        <div>
+                            <h5>Nilai Aset Saat Ini:</h5>
+                            <p>{{ $asset->current_asset_value }}</p>
+                        </div>
                     </li>
 
                     <li>
