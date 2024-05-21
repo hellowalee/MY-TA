@@ -54,8 +54,14 @@
                         <td>{{ $asset->NUP }}</td>
                         <td>{{ $asset->asset_area }}</td>
                         <td>{{ $asset->year_of_acquisition }}</td>
+                        <?php
+                            // ubah format angka menjadi format rupiah
+                            $asset->acquisition_value = "Rp " . number_format($asset->acquisition_value,2,',','.');
+                            $asset->current_asset_value = "Rp " . number_format($asset->current_asset_value,2,',','.');
+                        ?>
                         <td>{{ $asset->acquisition_value }}</td>
                         <td>{{ $asset->current_asset_value }}</td>
+
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
                         <td>{{ $asset->allocation }}</td>
