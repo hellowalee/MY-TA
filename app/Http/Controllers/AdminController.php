@@ -132,14 +132,12 @@ class AdminController extends Controller
     {
         if ($data === 'all') {
             $asset = Asset::query();
-            $asset = $asset->paginate(10);
         } else {
             $asset = Asset::where('id', 'like', '%' . $data . '%')
                 ->orWhere('nickname', 'like', '%' . $data . '%')
                 ->orWhere('fullname', 'like', '%' . $data . '%');
-            $asset = $asset->paginate(10);
         }
-    
+        $asset = $asset->orderBy('id', 'desc')->paginate(10);
         return view('admin.list-asset', ['assets' => $asset]);
         // return $asset;
     }
