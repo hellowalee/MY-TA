@@ -84,5 +84,10 @@
                 @endforeach
             </tbody>
         </table>
+            {{-- tombol next --}}
+        <div class="d-flex justify-content-center">
+            {{ $assets->links() }}
+        </div>
     </div>
+
 @endsection

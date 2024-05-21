@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sistem Informasi Pencatatan Aset</title>
+  <title>Sistem Informasi Penatausahaan Aset</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,8 +28,8 @@
   <link href="{{ asset('theme/assets/css/style.css') }}" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Sistem Informasi Pencatatan Aset
-  * Template URL: https://bootstrapmade.com/Sistem Informasi Pencatatan Aset-bootstrap-business-template/
+  * Template Name: Sistem Informasi Penatausahaan Aset
+  * Template URL: https://bootstrapmade.com/Sistem Informasi Penatausahaan Aset-bootstrap-business-template/
   * Updated: Mar 17 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
@@ -45,12 +45,12 @@
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
       </div>
-      {{-- <div class="social-links d-none d-md-flex align-items-center">
+      <!-- <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div> --}}
+      </div> -->
     </div>
   </section>
 
@@ -58,7 +58,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Sistem Informasi Pencatatan Aset<span></span></a></h1>
+      <h1 class="logo"><a href="/">Sistem Informasi Penatausahaan Aset<span></span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -104,26 +104,26 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    {{-- <div class="footer-newsletter">
+    <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <!-- <h4>Join Our Newsletter</h4> -->
+            <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Subscribe"> -->
             </form>
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-10 col-md-6 footer-contact">
-            <h3>Sistem Informasi Pencatatan Aset<span>.</span></h3>
+          <div class="col-lg-3 col-md-9 footer-contact">
+            <h3>Sistem Informasi Penatausahaan Aset<span></span></h3>
             <p>
               A108 Adam Street <br>
               New York, NY 535022<br>
@@ -133,27 +133,29 @@
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="/">Beranda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/asset/list/all">Ruang Aset</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/asset/map/all">Ruang Peta</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
           </div>
 
-          {{-- <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <!-- <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
+          <!-- <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
@@ -163,7 +165,7 @@
               <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
-          </div> --}}
+          </div> -->
 
         </div>
       </div>
@@ -171,13 +173,13 @@
 
     <div class="container py-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Sistem Informasi Pencatatan Aset</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Sistem Informasi Penatausahaan Aset</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Sistem Informasi Pencatatan Aset-bootstrap-business-template/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Sistem Informasi Penatausahaan Aset-bootstrap-business-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
