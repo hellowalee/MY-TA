@@ -16,7 +16,7 @@
         <div class="input-group w-100">
           <input id="search" name="search" type="text" class="form-control" placeholder="NUP">
           <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Cari Asset</button>
+            <button class="btn btn-primary" type="submit">Cari Aset</button>
           </div>
         </div>
       </form>
