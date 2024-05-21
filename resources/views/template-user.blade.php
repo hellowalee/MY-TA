@@ -136,13 +136,13 @@
           <div class="col-md-3">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="/">Beranda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/asset/list/all">Ruang Aset</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/asset/map/all">Ruang Peta</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/wpadmin">Dashboard Admin</a></li>
+              <li><a href="/">Beranda</a></li>
+              <li><a href="/asset/list/all">Ruang Aset</a></li>
+              <li><a href="/asset/map/all">Ruang Peta</a></li>
+              <li><a href="/wpadmin">Dashboard Admin</a></li>
             </ul>
           </div>
-          
+
         </div>
       </div>
     </div>
