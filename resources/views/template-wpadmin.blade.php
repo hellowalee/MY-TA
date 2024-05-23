@@ -104,18 +104,18 @@
                         <div class="header_right d-flex justify-content-between align-items-center">
                             <div class="header_notification_warp d-flex align-items-center">
                                 <li>
-                                    <a href="https://demo.dashboardpack.com/finance-html/#"> <img
+                                    <a href="#"> <img
                                             src="https://demo.dashboardpack.com/finance-html/img/icon/bell.svg" alt>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://demo.dashboardpack.com/finance-html/#"> <img
+                                    <a href="#"> <img
                                             src="https://demo.dashboardpack.com/finance-html/img/icon/msg.svg" alt>
                                     </a>
                                 </li>
                             </div>
                             <div class="profile_info">
-                                <img src="https://demo.dashboardpack.com/finance-html/img/client_img.png"
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh2monDpyJhELbQ02nKN41VyHERpD0SRRB9SsyNr0Ehw&s"
                                     alt="#">
                                     <div class="profile_info_iner">
                                         <p>Welcome 
@@ -149,7 +149,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-sm-12">
                         <div class="footer_iner text-center">
-                            <p>2020 © Influence - Designed by<a href="https://demo.dashboardpack.com/finance-html/#">
+                            <p>2020 © Influence - Designed by<a href="#">
                                     Dashboard</a></p>
                         </div>
                     </div>
