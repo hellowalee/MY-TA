@@ -38,7 +38,38 @@ class AdminController extends Controller
     }
 
      public function AdminDashboard(){
-         return view('admin.dashboard');
+        // jumlah aset jika asset_type = tanah
+        $totalAssetTypeTanah = Cache::remember('total_asset_type_tanah', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->count();
+        });
+        // jumlah aset jika asset_type = bangunan
+        $totalAssetTypeBangunan = Cache::remember('total_asset_type_bangunan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->count();
+        });
+        // jumlah nominal perolehan tanah
+        $totalAcquisitionValueTanah = Cache::remember('total_acquisition_value_tanah', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->sum('acquisition_value');
+        });
+        // jumlah nominal perolehan bangunan
+        $totalAcquisitionValueBangunan = Cache::remember('total_acquisition_value_bangunan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->sum('acquisition_value');
+        });
+        // jumlah nilai aset tanah
+        $totalCurrentValueTanah = Cache::remember('total_current_value_tanah', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->sum('current_asset_value');
+        });
+        // jumlah nilai aset bangunan
+        $totalCurrentValueBangunan = Cache::remember('total_current_value_bangunan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->sum('current_asset_value');
+        });
+         return view('admin.dashboard', [
+            'totalAssetTypeTanah' => $totalAssetTypeTanah,
+            'totalAssetTypeBangunan' => $totalAssetTypeBangunan,
+            'totalAcquisitionValueTanah' => $totalAcquisitionValueTanah,
+            'totalAcquisitionValueBangunan' => $totalAcquisitionValueBangunan,
+            'totalCurrentValueTanah' => $totalCurrentValueTanah,
+            'totalCurrentValueBangunan' => $totalCurrentValueBangunan,
+        ]);
      }
 
      public function AdminCreate(){
@@ -137,8 +168,8 @@ class AdminController extends Controller
             $asset = Asset::query();
         } else {
             $asset = Asset::where('id', 'like', '%' . $data . '%')
-                ->orWhere('nickname', 'like', '%' . $data . '%')
-                ->orWhere('fullname', 'like', '%' . $data . '%');
+                ->orWhere('NUP', 'like', '%' . $data . '%')
+                ->orWhere('asset_type', 'like', '%' . $data . '%');
         }
         $asset = $asset->orderBy('NUP', 'asc')->paginate(10);
         return view('admin.list-asset', ['assets' => $asset]);
