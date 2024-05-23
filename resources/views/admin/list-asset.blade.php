@@ -4,7 +4,7 @@
     <h1>Daftar Aset</h1>
     <div class="d-flex mb-3">
         <a href="/admin/asset/create" class="btn btn-primary mr-2">Tambah Aset Baru</a>
-        <button onclick="downloadExcel()" class="btn btn-secondary">Download Excel</button>
+        <a href="/download-excel" class="btn btn-success">Download Excel</a>
     </div>
     @if (session('status'))
         <div class="alert alert-success mt-5">
@@ -87,6 +87,10 @@
         function downloadExcel() {
             // Ambil data dari tabel
             var table = document.getElementById('assetTable');
+            // kurangi 1 kolom terakhir dan beri warna hijau untuk heder
+            for (var i = 0; i < table.rows.length; i++) {
+                table.rows[i].deleteCell(-1);
+            }
             var workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet JS"});
             
             // Buat file excel

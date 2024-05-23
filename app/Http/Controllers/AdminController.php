@@ -11,11 +11,14 @@ use App\Models\Catalog;
 use App\Models\Asset;
 use Illuminate\Support\Facades\DB;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class AdminController extends Controller
 {
@@ -243,6 +246,61 @@ class AdminController extends Controller
             return "Data Tidak Ditemukan";
         }
     }
+
+    public function downloadExcel()
+{
+    // Ambil data dari model Asset
+    $data = Asset::all();
+
+    // Inisialisasi objek Spreadsheet
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+
+    // Set judul kolom dan beri warna hijau
+    $columns = ['Jenis Hak Tanah', 'No Sertipikat', 'No Registrasi', 'Jenis Aset', 'Nama Aset', 'NUP', 'Luas Aset', 'Tahun Perolehan', 'Nilai Perolehan', 'Nilai Aset Saat Ini', 'Latitude Lokasi', 'Longitude Lokasi', 'Alokasi', 'Gambar', 'Action'];
+    $columnIndex = 1;
+    foreach ($columns as $column) {
+        $sheet->setCellValueByColumnAndRow($columnIndex, 1, $column);
+        $sheet->getStyleByColumnAndRow($columnIndex, 1)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FF00FF00');
+        $columnIndex++;
+    }
+
+    // Isi data ke dalam sheet
+    $row = 2;
+    foreach ($data as $asset) {
+        $sheet->setCellValue('A' . $row, $asset->right_type);
+        $sheet->setCellValue('B' . $row, $asset->certificate_number);
+        $sheet->setCellValue('C' . $row, $asset->registration_number);
+        $sheet->setCellValue('D' . $row, $asset->asset_type);
+        $sheet->setCellValue('E' . $row, $asset->asset_name);
+        $sheet->setCellValue('F' . $row, $asset->NUP);
+        $sheet->setCellValue('G' . $row, $asset->asset_area);
+        $sheet->setCellValue('H' . $row, $asset->year_of_acquisition);
+        $sheet->setCellValue('I' . $row, $asset->acquisition_value);
+        $sheet->setCellValue('J' . $row, $asset->current_asset_value);
+        $sheet->setCellValue('K' . $row, $asset->location_latitude);
+        $sheet->setCellValue('L' . $row, $asset->location_longitude);
+        $sheet->setCellValue('M' . $row, $asset->allocation);
+        $sheet->setCellValue('N' . $row, $asset->picture);
+        $sheet->setCellValue('O' . $row, 'View, Edit, Delete');
+        $row++;
+    }
+
+    // Hapus kolom terakhir
+    $sheet->removeColumn('O');
+
+    // Buat objek writer untuk menulis ke file xlsx
+    $writer = new Xlsx($spreadsheet);
+
+    // Set header untuk response
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="assets.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    // Tulis spreadsheet ke output
+    $writer->save('php://output');
+}
+
 
     public function AdminSymLink(){
         $linkFolder=public_path('storage');

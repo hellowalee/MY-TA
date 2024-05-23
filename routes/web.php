@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
         \Illuminate\Support\Facades\Artisan::call('storage:link');
         echo 'storage linked!';
     });
+    Route::get('/download-excel', [AdminController::class, 'downloadExcel']);
 });
 
 Route::get('/', [AssetController::class, 'index']);
