@@ -98,14 +98,14 @@
                         {
                             label: 'Tanah',
                             data: [{{$totalAssetTypeTanahDisewakan}}, {{$totalAssetTypeTidakSedangDigunakan}}, {{$totalAssetTypeSedangDigunakan}}],
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            backgroundColor: 'rgba(177, 142, 148)',
                             borderColor: 'rgba(75, 192, 192, 1)',
                             borderWidth: 1
                         },
                         {
                             label: 'Bangunan',
                             data: [{{$totalAssetTypeBangunanTanahDisewakan}}, {{$totalAssetTypeBangunanTidakSedangDigunakan}}, {{$totalAssetTypeBangunanSedangDigunakan}}],
-                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            backgroundColor: 'rgba(218, 215, 151)',
                             borderColor: 'rgba(153, 102, 255, 1)',
                             borderWidth: 1
                         }
