@@ -12,8 +12,8 @@
                             <div class="quick_activity_wrap">
                                 <?php 
                                     // ubah format angka menjadi format rupiah
-                                    // $totalAcquisitionValueTanah = "Rp " . number_format($totalAcquisitionValueTanah,2,',','.');
-                                    // $totalAcquisitionValueBangunan = "Rp " . number_format($totalAcquisitionValueBangunan,2,',','.');
+                                    $totalAcquisitionValueTanah = number_format($totalAcquisitionValueTanah,2,',','.');
+                                    $totalAcquisitionValueBangunan = number_format($totalAcquisitionValueBangunan,2,',','.');
                                 ?>
                                 <div class="single_quick_activity">
                                     <h4>Jumlah Aset Tanah</h4>
@@ -27,12 +27,12 @@
                                 </div>
                                 <div class="single_quick_activity">
                                     <h4>Jumlah Perolehan Nilai Tanah </h4>
-                                    <h3>Rp <span class="counter">{{$totalAcquisitionValueTanah}} </span> </h3>
+                                    <h3>Rp <span class="">{{$totalAcquisitionValueTanah}} </span> </h3>
                                     {{-- <p>Saved 25%</p> --}}
                                 </div>
                                 <div class="single_quick_activity">
                                     <h4>Jumlah Perolehan Nilai Bangunan </h4>
-                                    <h3>Rp <span class="counter">{{$totalAcquisitionValueBangunan}} </span> </h3>
+                                    <h3>Rp <span class="">{{$totalAcquisitionValueBangunan}} </span> </h3>
                                     {{-- <p>Saved 25%</p> --}}
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                 var tanahCtx = document.getElementById('tanahChart').getContext('2d');
         
                 var tanahData = {
-                    labels: ['Total Nilai Tanah', 'Total Nilai Bangunan'],
+                    labels: ['Total Nilai Tanah Saat Ini', 'Total Nilai Bangunan Saat Ini'],
                     datasets: [{
                         label: 'Tanah',
                         data: [{{ $totalCurrentValueTanah }}, {{ $totalCurrentValueBangunan }}],
