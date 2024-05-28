@@ -80,9 +80,8 @@
         
             });
         </script>
-        
-
-        {{-- <div class="col-lg-12 col-xl-6">
+        {{-- 
+        <div class="col-lg-12 col-xl-6">
             <div class="white_box mb_30 min_430">
                 <div class="box_header  box_header_block ">
                     <div class="main-title">
@@ -258,8 +257,46 @@
                 </div>
                 <div id="stackbar_active"></div>
             </div>
-        </div> --}}
+        </div> 
+        --}}
 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <div style="width: 50%; margin: auto;">
+                <canvas id="myBarChart"></canvas>
+            </div>
+            <script>
+                var ctx = document.getElementById('myBarChart').getContext('2d');
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Disewakan', 'Tidak Sedang Digunakan', 'Sedang Digunakan'],
+                        datasets: [
+                            {
+                                label: 'Tanah',
+                                data: [12, 19, 3],
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Bangunan',
+                                data: [5, 10, 15],
+                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
 
     </div>
 </div>
