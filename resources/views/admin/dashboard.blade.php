@@ -43,8 +43,12 @@
         </div>
 
         <div class="row justify-content-center text-center">
-            <div class="col-md-8 text-center">
+            <div class="col-md-7 text-center">
                 <canvas id="tanahChart" width="500" height="500"></canvas>
+            </div>
+
+            <div class="col-md-5 text-center">
+                <canvas id="myBarChart" width="500" height="500"></canvas>
             </div>
         </div>
         
@@ -80,6 +84,43 @@
         
             });
         </script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var ctx = document.getElementById('myBarChart').getContext('2d');
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Disewakan', 'Tidak Sedang Digunakan', 'Sedang Digunakan'],
+                    datasets: [
+                        {
+                            label: 'Tanah',
+                            data: [{{$totalAssetTypeTanahDisewakan}}, {{$totalAssetTypeTidakSedangDigunakan}}, {{$totalAssetTypeSedangDigunakan}}],
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Bangunan',
+                            data: [{{$totalAssetTypeBangunanTanahDisewakan}}, {{$totalAssetTypeBangunanTidakSedangDigunakan}}, {{$totalAssetTypeBangunanSedangDigunakan}}],
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+
         {{-- 
         <div class="col-lg-12 col-xl-6">
             <div class="white_box mb_30 min_430">
@@ -259,44 +300,6 @@
             </div>
         </div> 
         --}}
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-            <div style="width: 50%; margin: auto;">
-                <canvas id="myBarChart"></canvas>
-            </div>
-            <script>
-                var ctx = document.getElementById('myBarChart').getContext('2d');
-                var myBarChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Disewakan', 'Tidak Sedang Digunakan', 'Sedang Digunakan'],
-                        datasets: [
-                            {
-                                label: 'Tanah',
-                                data: [12, 19, 3],
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Bangunan',
-                                data: [5, 10, 15],
-                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                                borderColor: 'rgba(153, 102, 255, 1)',
-                                borderWidth: 1
-                            }
-                        ]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
 
     </div>
 </div>

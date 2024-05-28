@@ -39,13 +39,35 @@ class AdminController extends Controller
 
      public function AdminDashboard(){
         // jumlah aset jika asset_type = tanah
-        $totalAssetTypeTanah = Cache::remember('total_asset_type_tanah', 60, function () {
-            return Asset::where('asset_type', 'Tanah')->count();
+        $totalAssetTypeTanahDisewakan = Cache::remember('total_asset_type_tanah_disewakan', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->where('allocation', 'Disewakan')->count();
         });
+
+        $totalAssetTypeSedangDigunakan = Cache::remember('total_asset_type_tanah_sedang_digunakan', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->where('allocation', 'Sedang Digunakan')->count();
+        });
+
+        $totalAssetTypeTidakSedangDigunakan = Cache::remember('total_asset_type_tanah_tidak_sedang_digunakan', 60, function () {
+            return Asset::where('asset_type', 'Tanah')->where('allocation', 'Tidak Sedang Digunakan')->count();
+        });
+
+        $totalAssetTypeTanah= $totalAssetTypeTanahDisewakan + $totalAssetTypeSedangDigunakan + $totalAssetTypeTidakSedangDigunakan;
+
         // jumlah aset jika asset_type = bangunan
-        $totalAssetTypeBangunan = Cache::remember('total_asset_type_bangunan', 60, function () {
-            return Asset::where('asset_type', 'Bangunan')->count();
+        $totalAssetTypeBangunanTanahDisewakan = Cache::remember('total_asset_type_bangunan_disewakan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->where('allocation', 'Disewakan')->count();
         });
+
+        $totalAssetTypeBangunanSedangDigunakan = Cache::remember('total_asset_type_bangunan_sedang_digunakan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->where('allocation', 'Sedang Digunakan')->count();
+        });
+
+        $totalAssetTypeBangunanTidakSedangDigunakan = Cache::remember('total_asset_type_bangunan_tidak_sedang_digunakan', 60, function () {
+            return Asset::where('asset_type', 'Bangunan')->where('allocation', 'Tidak Sedang Digunakan')->count();
+        });
+
+        $totalAssetTypeBangunan= $totalAssetTypeBangunanTanahDisewakan + $totalAssetTypeBangunanSedangDigunakan + $totalAssetTypeBangunanTidakSedangDigunakan;
+
         // jumlah nominal perolehan tanah
         $totalAcquisitionValueTanah = Cache::remember('total_acquisition_value_tanah', 60, function () {
             return Asset::where('asset_type', 'Tanah')->sum('acquisition_value');
@@ -69,6 +91,13 @@ class AdminController extends Controller
             'totalAcquisitionValueBangunan' => $totalAcquisitionValueBangunan,
             'totalCurrentValueTanah' => $totalCurrentValueTanah,
             'totalCurrentValueBangunan' => $totalCurrentValueBangunan,
+
+            'totalAssetTypeTanahDisewakan' => $totalAssetTypeTanahDisewakan,
+            'totalAssetTypeSedangDigunakan' => $totalAssetTypeSedangDigunakan,
+            'totalAssetTypeTidakSedangDigunakan' => $totalAssetTypeTidakSedangDigunakan,
+            'totalAssetTypeBangunanTanahDisewakan' => $totalAssetTypeBangunanTanahDisewakan,
+            'totalAssetTypeBangunanSedangDigunakan' => $totalAssetTypeBangunanSedangDigunakan,
+            'totalAssetTypeBangunanTidakSedangDigunakan' => $totalAssetTypeBangunanTidakSedangDigunakan,
         ]);
      }
 
