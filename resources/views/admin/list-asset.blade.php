@@ -69,7 +69,7 @@
                         <td>
                             <a href="/asset/view/{{$asset->id}}" class="btn btn-primary">View</a>
                             <a href="/admin/asset/edit/{{$asset->id}}" class="btn btn-success">Edit</a>
-                            <a href="/admin/asset/delete/{{$asset->id}}" class="btn btn-danger">Delete</a>
+                            <a href="" onclick="deleteConfirmation('/admin/asset/delete/{{$asset->id}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Finance</title>
-    <link rel="icon" href="https://th.bing.com/th/id/OIG3.WFE7a7Y6EPSTvBXOJMhw?w=1024&h=1024&rs=1&pid=ImgDetMain" type="image/png">
+    <link rel="icon" href="https://demo.dashboardpack.com/finance-html/img/logo.png" type="image/png">
 
     <link rel="stylesheet" href="https://demo.dashboardpack.com/finance-html/css/bootstrap1.min.css" />
 
@@ -54,7 +54,7 @@
     <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
             <a href="https://demo.dashboardpack.com/finance-html/index.html"><img
-                    src="https://th.bing.com/th/id/OIG3.WFE7a7Y6EPSTvBXOJMhw?w=1024&h=1024&rs=1&pid=ImgDetMain" alt></a>
+                    src="https://demo.dashboardpack.com/finance-html/img/logo.png" alt></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -210,6 +210,16 @@
     <script src="https://demo.dashboardpack.com/finance-html/vendors/apex_chart/bar_active_1.js"></script>
     <script src="https://demo.dashboardpack.com/finance-html/vendors/chartjs/chartjs_active.js"></script>
 
+
+    <script>
+        function deleteConfirmation(url) {
+            // munculkan konfirmasi yes no
+            if (confirm('Apakah Anda yakin akan menghapus data ini?')) {
+                // jika user klik ye
+                window.location=url;
+            }
+        }
+    </script>
 </body>
 
 </html>
