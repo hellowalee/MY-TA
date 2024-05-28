@@ -3,7 +3,7 @@
 @section('main')
     <h1>Daftar Aset</h1>
     <div class="d-flex mb-3">
-        <a href="/admin/asset/create" class="btn btn-primary mr-2">Tambah Aset Baru</a>
+        <a href="/admin/asset/create" class="btn btn-primary mx-2">Tambah Aset Baru</a>
         <a href="/download-excel" class="btn btn-success">Download Excel</a>
     </div>
     @if (session('status'))
