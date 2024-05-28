@@ -62,8 +62,8 @@
                     datasets: [{
                         label: 'Tanah',
                         data: [{{ $totalCurrentValueTanah }}, {{ $totalCurrentValueBangunan }}],
-                        backgroundColor: ['#FF6384', '#36A2EB'],
-                        hoverBackgroundColor: ['#FF6384', '#36A2EB']
+                        backgroundColor: ['rgba(166, 215, 151)', 'rgba(125, 172, 192)'],
+                        hoverBackgroundColor: ['rgba(166, 215, 151)', 'rgba(125, 172, 192)']
                     }]
                 };
         
