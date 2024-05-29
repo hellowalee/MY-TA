@@ -54,18 +54,10 @@ class SessionController extends Controller
 
     function createUser(Request $request)
     {
-
-        // return $request;
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
-        ],[
-            'name.required' => 'Nama tidak boleh kosong',
-            'email.required' => 'Email tidak boleh kosong',
-            'email.unique' => 'Email sudah terdaftar',
-            'password.required' => 'Password tidak boleh kosong',
-            'password.min' => 'Password minimal 6 karakter',
+            'email' => 'required',
+            'password' => 'required'
         ]);
 
         $user = new User;
@@ -75,7 +67,7 @@ class SessionController extends Controller
         $user->password = bcrypt($request->password); // Use Hash::make() to hash the password
         $user->save();
 
-        return redirect('/wpadmin-login')->with('success', 'Registrasi berhasil');
+        return redirect('/wpadmin-login')->with('status', 'Registrasi berhasil');
     }
 
     public function contact($product){

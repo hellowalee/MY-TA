@@ -126,7 +126,7 @@
                                             @endif
                                             !!!
                                         </p>
-                                        <h5>{{ Auth::user()->email }}</h5>
+                                        <h5>{{ Auth::user()->name }}</h5>
                                         <div class="profile_info_details">
                                             <a href="#">My Profile <i class="ti-user"></i></a>
                                             <a href="#">Settings <i class="ti-settings"></i></a>

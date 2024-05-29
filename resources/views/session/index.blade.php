@@ -7,6 +7,11 @@
         <div class="card">
           <div class="card-header">
             <h3 class="text-center">Form Login</h3>
+            @if(session('status'))
+              <div class="alert alert-success">
+                {{ session('status') }}
+              </div>
+            @endif
           </div>
           <div class="card-body">
             <form enctype="multipart/form-data" class="ps-checkout__form" action="/session/login" method="post">
