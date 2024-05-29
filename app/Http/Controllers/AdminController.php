@@ -149,7 +149,7 @@ class AdminController extends Controller
             $picture1 = '/storage/asset/' . $imageName1;
         }
         else{
-            $picture1 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+            $picture1 = null;
         }
 
         if ($request->hasFile('picture2')) {
@@ -160,7 +160,7 @@ class AdminController extends Controller
             $picture2 = '/storage/asset/' . $imageName2;
         }
         else{
-            $picture2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+            $picture2 = null;
         }
 
         $validatedData['picture'] = $picture;

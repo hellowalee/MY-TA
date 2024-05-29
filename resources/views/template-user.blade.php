@@ -42,8 +42,8 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        {{-- <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i> --}}
       </div>
       <!-- <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -109,7 +109,9 @@
         <div class="row justify-content-center">
           <div class="col-lg-6">
             <!-- <h4>Join Our Newsletter</h4> -->
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>
+              {{-- Tamen quem nulla quae legam multos aute sint culpa legam noster magna --}}
+            </p>
             {{-- <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form> --}}
@@ -125,11 +127,11 @@
           <div class="col-md-9">
             <h3>Sistem Informasi Penatausahaan Aset<span></span></h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Jl. Abdul Rahman Saleh No.12, Trimulyo, Ngujang <br>
+              Kec. Kedungwaru, Kabupaten Tulungagung 66229<br>
+              Jawa Timur <br><br>
+              {{-- <strong>Phone:</strong> +1 5589 55488 55<br> --}}
+              {{-- <strong>Email:</strong> info@example.com<br> --}}
             </p>
           </div>
 

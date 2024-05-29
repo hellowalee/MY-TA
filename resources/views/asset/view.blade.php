@@ -51,12 +51,16 @@
                             <li class="glide__slide">
                                 <img src="{{$asset->picture}}" class="picsize" alt="Gambar 1">
                             </li>
+                            @if ($asset->picture1)
                             <li class="glide__slide">
                                 <img src="{{$asset->picture1}}" class="picsize" alt="Gambar 2">
                             </li>
+                            @endif
+                            @if ($asset->picture2)
                             <li class="glide__slide">
                                 <img src="{{$asset->picture2}}" class="picsize" alt="Gambar 3">
-                            </,>
+                            </li>
+                            @endif
                         </ul>
                     </div>
 
@@ -179,7 +183,7 @@
 
                 </div>
 
-                <div class="mt-3">
+                <div class="mt-3" style="display: none">
                     <label for="mapShow">Pilih Jenis Tampilan</label>
                     <select id="mapShow" class="form-select">
                         <option value="bingmap">Bing Map</option>
@@ -206,7 +210,7 @@
             <div class="col-lg-4 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <h3>Detail Aset</h3>
                 <p class="fst-italic">
-                    Berisi informasi lengkap mengenai asset yang dicari
+                    Berisi informasi lengkap mengenai aset yang dicari
                 </p>
                 <ul>
 
