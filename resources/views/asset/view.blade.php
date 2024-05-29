@@ -12,8 +12,8 @@
     <style>
         /* Mengatur lebar dan tinggi gambar */
         .glide__slide img {
-            width: 500px;  /* Set lebar gambar */
-            height: 500px; /* Set tinggi gambar */
+            width: 800px;  /* Set lebar gambar */
+            height: 1000px; /* Set tinggi gambar */
             object-fit: contain; /* Mempertahankan proporsi asli gambar */
             margin: 0; /* Menghapus margin bawaan dari tag img */
         }
@@ -24,8 +24,8 @@
         }
 
         .picsize{
-            width: 100%;
-            height: 100%;
+            width: 1000px;
+            height: 1000px;
         }
     </style>
 
