@@ -77,13 +77,13 @@
                    // Gambar ikon merah
                    var icon =null;
                    if(type == 'Tanah'){
-                    icon = 'https://i.imghippo.com/files/DTHiB1715844289.png';
+                    icon = 'https://gisade.site/storage/image/greenarrow.png';
                   
                    }else if(type == 'Bangunan'){
-                     icon = 'https://i.imghippo.com/files/PWGcQ1715845072.png';
+                     icon = 'https://gisade.site/storage/image/yellowarrow.png';
                     }
                     else{
-                      icon = 'https://i.imghippo.com/files/F9NPm1715845113.png';
+                      icon = 'https://gisade.site/storage/image/blackarrow.png';
                     }
 
                     

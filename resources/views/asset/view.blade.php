@@ -16,17 +16,20 @@
             height: 1000px; /* Set tinggi gambar */
             object-fit: contain; /* Mempertahankan proporsi asli gambar */
             margin: 0; /* Menghapus margin bawaan dari tag img */
+            padding: 0; /* Menghapus padding bawaan dari tag img */
         }
         
         /* Mengatur gaya kontainer slide */
         .glide__slides {
             display: flex; /* Menggunakan layout flex untuk membuat responsif */
+            width: 200
         }
 
-        .picsize{
-            width: 1000px;
-            height: 1000px;
+        .picsize {
+            width: 50%;
+            height: 50%;
         }
+
     </style>
 
     <!-- ======= About Section ======= -->
@@ -39,11 +42,11 @@
             <p>Informasi lengkap mengenai aset yang dicari</p>
         </div>
 
-        <div class="row">
-            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="100">
+        <div class="row m-0 m-0 p-0">
+            <div class="col-lg-8 m-0 p-0" data-aos="fade-right" data-aos-delay="100">
                 {{-- <img src="{{ $asset->picture }}" class="img-fluid" alt="Foto Bangunan Aset"> --}}
                 <!-- Carousel container -->
-                <div id="glide" class="glide container">
+                <div id="glide" class="glide">
                     <!-- Track -->
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">

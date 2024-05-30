@@ -46,6 +46,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/download-excel', [AdminController::class, 'downloadExcel']);
 });
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin/user/list', [AdminController::class, 'UserList']);
+    Route::get('/admin/user/edit/{id}', [AdminController::class, 'UserEdit']);
+    Route::post('/admin/user/update/{id}', [AdminController::class, 'UserUpdate']);
+    Route::get('/admin/user/delete/{id}', [AdminController::class, 'UserDelete']);
+});
+
 Route::get('/', [AssetController::class, 'index']);
 Route::get('/asset/list/{id}', [AssetController::class, 'list']);
 Route::get('/asset/view/{id}', [AssetController::class, 'view']);

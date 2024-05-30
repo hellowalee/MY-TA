@@ -76,6 +76,16 @@
                     <li><a href="/admin/asset/list/Bangunan">Bangunan</a></li>
                 </ul>
             </li>
+            <li class>
+                <a class="has-arrow1" href="/admin/user/list" aria-expanded="false">
+                    <img src="https://demo.dashboardpack.com/finance-html/img/menu-icon/6.svg" alt>
+                    <span>Pengaturan User </span>
+                </a>
+                {{-- <ul>
+                    <li><a href="/admin/asset/list/Tanah">Tanah</a></li>
+                    <li><a href="/admin/asset/list/Bangunan">Bangunan</a></li>
+                </ul> --}}
+            </li>
         </ul>
     </nav>
 

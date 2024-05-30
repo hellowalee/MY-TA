@@ -1,14 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Theme;
-use App\Models\Confirmation;
-use App\Models\Page;
-use App\Models\Song;
-use App\Models\Code;
-use App\Models\Pendingpayment;
-use App\Models\Catalog;
 use App\Models\Asset;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 
@@ -294,19 +288,6 @@ class AdminController extends Controller
          }
       }
 
-    public function UserEdit($id, $nickname, $fullname){
-        $name1 = ucwords($nickname);
-        $resume = Resume::all()->where('id', $id)->where('nickname', $name1);
-        if(count($resume)>0){
-         // nanti diganti ya,buatin sendiri
-            $resume = Resume::all()->where('id', $id)->first();
-            return view('admin-resume.edit-resume-user',['resume'=>$resume]);
-        }
-        else{
-            return "Data Tidak Ditemukan";
-        }
-    }
-
     public function downloadExcel()
 {
     // Ambil data dari model Asset
@@ -379,6 +360,30 @@ class AdminController extends Controller
         }
         // ln -s /home/u971422264/domains/akad.in/public_html/storage/app/public /home/u971422264/domains/akad.in/public_html/public/storage
         echo 'Symlink process successfully completed';
+    }
+
+    public function UserList(){
+        // pagination
+        $users = User::paginate(10);
+        return view('user.list', ['users' => $users]);
+    }
+
+    public function UserDelete($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('status', 'Data Sukses Dihapus');
+    }
+
+    public function UserEdit($id){
+        $user = User::find($id);
+        return view('user.edit',['user'=>$user]);
+    }
+
+    public function UserUpdate(Request $request, $id){
+        $userData = $request->except(['id', '_token']); // Exclude the 'id' and '_token' fields
+        $userData['password'] = bcrypt($request->password);
+        User::where('id', $request->id)->update($userData);
+        return redirect('/admin/user/list')->with('status', 'User berhasil diubah.');
     }
 
 }
