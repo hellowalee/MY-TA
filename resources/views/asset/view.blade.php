@@ -51,9 +51,11 @@
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             <!-- Slides dengan gambar -->
+                            @if ($asset->picture)
                             <li class="glide__slide">
                                 <img src="{{$asset->picture}}" class="picsize" alt="Gambar 1">
                             </li>
+                            @endif
                             @if ($asset->picture1)
                             <li class="glide__slide">
                                 <img src="{{$asset->picture1}}" class="picsize" alt="Gambar 2">
