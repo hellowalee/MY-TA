@@ -16,7 +16,18 @@
         <div class="input-group w-100">
           <input id="search" name="search" type="text" class="form-control" placeholder="NUP">
           <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Cari Aset</button>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button class="btn btn-primary" type="submit">Cari Aset</button>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Jenis Aset
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/asset/list/all">Semua Aset </a></li>
+                  <li><a class="dropdown-item" href="/asset/list/rent">Aset Disewakan</a></li>
+                  <li><a class="dropdown-item" href="/asset/list/notrent">Aset Tidak Disewakan</a></li>
+              </div>
+            </div>
           </div>
         </div>
       </form>

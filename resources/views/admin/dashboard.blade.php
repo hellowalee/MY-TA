@@ -56,7 +56,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var tanahCtx = document.getElementById('tanahChart').getContext('2d');
-
+        
                 var tanahData = {
                     labels: ['Jumlah Perolehan Nilai Tanah', 'Jumlah Perolehan Nilai Bangunan'],
                     datasets: [{
@@ -66,7 +66,7 @@
                         hoverBackgroundColor: ['rgba(166, 215, 151)', 'rgba(125, 172, 192)']
                     }]
                 };
-
+        
                 var tanahChart = new Chart(tanahCtx, {
                     type: 'doughnut',
                     data: tanahData,
@@ -76,7 +76,12 @@
                         plugins: {
                             legend: {
                                 display: true,
-                                position: 'bottom'
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 16 // Adjust the font size for the legend
+                                    }
+                                }
                             },
                             tooltip: {
                                 callbacks: {
@@ -85,6 +90,9 @@
                                         let value = context.raw || 0;
                                         return `${label}: Rp. ${value.toLocaleString()}`;
                                     }
+                                },
+                                bodyFont: {
+                                    size: 60 // Adjust the font size for the tooltip body
                                 }
                             }
                         }
@@ -92,6 +100,7 @@
                 });
             });
         </script>
+        
 
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

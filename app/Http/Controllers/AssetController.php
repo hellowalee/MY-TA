@@ -94,6 +94,12 @@ class AssetController extends Controller
         if($id=='all'){
             $assets=Asset::all();
         }
+        else if($id=='rent'){
+            $assets=Asset::where('available_rent','Ya')->get();
+        }
+        else if($id=='notrent'){
+            $assets=Asset::where('available_rent','Tidak')->get();
+        }
         else{
             $assets=Asset::where('id',$id)->get();
         }

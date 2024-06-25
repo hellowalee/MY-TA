@@ -53,7 +53,7 @@
 
     <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <a href="https://demo.dashboardpack.com/finance-html/index.html"><img
+            <a href="/"><img
                     src="https://demo.dashboardpack.com/finance-html/img/logo.png" alt></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
