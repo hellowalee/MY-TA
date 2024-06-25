@@ -38,16 +38,16 @@
 
 <body>
   <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/667a31bc9d7f358570d2fd09/1i16l4ik3';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/667a31bc9d7f358570d2fd09/1i16lbbbk';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
   </script>
   <!--End of Tawk.to Script-->
 
@@ -78,7 +78,17 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="/asset/list/all">Ruang Aset</a></li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ruang Aset
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/asset/list/all">Semua Aset </a></li>
+              <li><a class="dropdown-item" href="/asset/list/rent">Aset Disewakan</a></li>
+            </ul>
+          </li>
+
           <li><a class="nav-link scrollto" href="/asset/map/all">Ruang Peta</a></li>
           
           <li><a class="nav-link scrollto" href="/wpadmin">
