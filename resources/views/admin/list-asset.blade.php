@@ -27,7 +27,9 @@
                     <th>Nilai Aset Saat Ini</th>
                     <th>Latitude Lokasi</th>
                     <th>Longitude Lokasi</th>
-                    <th>Alokasi</th>
+                    <th>Status Penggunaan</th>
+                    <th>Penggunaan</th>
+                    <th>Tersedia Untuk Disewakan</th>
                     <th>Gambar</th>
                     <th>Action</th>
                 </tr>
@@ -53,6 +55,8 @@
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
                         <td>{{ $asset->allocation }}</td>
+                        <td>{{ $asset->application }}</td>
+                        <td>{{ $asset->available_rent }}</td>
                         <td>
                             <?php
                             if (strpos($asset->picture, 'http') === false) {

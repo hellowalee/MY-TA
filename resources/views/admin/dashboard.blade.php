@@ -12,8 +12,8 @@
                             <div class="quick_activity_wrap">
                                 <?php 
                                     // ubah format angka menjadi format rupiah
-                                    $totalAcquisitionValueTanah = number_format($totalAcquisitionValueTanah,2,',','.');
-                                    $totalAcquisitionValueBangunan = number_format($totalAcquisitionValueBangunan,2,',','.');
+                                    $totalCurrentValueTanah = number_format($totalCurrentValueTanah,2,',','.');
+                                    $totalCurrentValueBangunan = number_format($totalCurrentValueBangunan,2,',','.');
                                 ?>
                                 <div class="single_quick_activity">
                                     <h4>Jumlah Aset Tanah</h4>
@@ -26,13 +26,13 @@
                                     {{-- <p>Saved 25%</p> --}}
                                 </div>
                                 <div class="single_quick_activity">
-                                    <h4>Jumlah Perolehan Nilai Tanah </h4>
-                                    <h3>Rp <span class="">{{$totalAcquisitionValueTanah}} </span> </h3>
+                                    <h4>Total Nilai Tanah Saat Ini</h4>
+                                    <h3>Rp <span class="">{{ $totalCurrentValueTanah }} </span> </h3>
                                     {{-- <p>Saved 25%</p> --}}
                                 </div>
                                 <div class="single_quick_activity">
-                                    <h4>Jumlah Perolehan Nilai Bangunan </h4>
-                                    <h3>Rp <span class="">{{$totalAcquisitionValueBangunan}} </span> </h3>
+                                    <h4>Total Nilai Bangunan Saat Ini</h4>
+                                    <h3>Rp <span class="">{{ $totalCurrentValueBangunan }}</span> </h3>
                                     {{-- <p>Saved 25%</p> --}}
                                 </div>
                             </div>
@@ -58,10 +58,10 @@
                 var tanahCtx = document.getElementById('tanahChart').getContext('2d');
 
                 var tanahData = {
-                    labels: ['Total Nilai Tanah Saat Ini', 'Total Nilai Bangunan Saat Ini'],
+                    labels: ['Jumlah Perolehan Nilai Tanah', 'Jumlah Perolehan Nilai Bangunan'],
                     datasets: [{
                         label: 'Tanah',
-                        data: [{{ $totalCurrentValueTanah }}, {{ $totalCurrentValueBangunan }}],
+                        data: [{{$totalAcquisitionValueTanah}}, {{$totalAcquisitionValueBangunan}}],
                         backgroundColor: ['rgba(166, 215, 151)', 'rgba(125, 172, 192)'],
                         hoverBackgroundColor: ['rgba(166, 215, 151)', 'rgba(125, 172, 192)']
                     }]

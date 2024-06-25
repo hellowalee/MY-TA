@@ -65,12 +65,34 @@
             <input type="text" name="location_longitude" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="allocation">Peruntukan</label>
+            <label for="allocation">Status Penggunaan</label>
             <select name="allocation" class="form-control" required>
                 <option value="Sedang Digunakan">Sedang Digunakan</option>
                 <option value="Tidak Sedang Digunakan">Tidak Sedang Digunakan</option>
                 <option value="Disewakan">Disewakan</option>
                 <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="application">Penggunaan</label>
+            <select name="application" class="form-control" required>
+                <option value="Pertanian">Pertanian</option>
+                <option value="Perdagangan & Jasa">Perdagangan & Jasa</option>
+                <option value="Pemukiman">Pemukiman</option>
+                <option value="Fasilitas Umum">Fasilitas Umum</option>
+                <option value="Pendidikan">Pendidikan</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Deskripsi</label>
+            <input type="text" name="description" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="available_rent">Tersedia Untuk Disewakan</label>
+            <select name="available_rent" class="form-control" required>
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
             </select>
         </div>
         <div class="form-group">

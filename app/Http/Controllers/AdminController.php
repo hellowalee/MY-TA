@@ -114,6 +114,9 @@ class AdminController extends Controller
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
             'allocation' => 'required|string',
+            'application' => 'required|string',
+            'description' => 'required|string',
+            'available_rent' => 'required|string',
         ]);
 
         if ($request->hasFile('picture')||$request->file('picture1')||$request->file('picture2')) {
@@ -173,6 +176,7 @@ class AdminController extends Controller
             'location_latitude' => $request->location_latitude,
             'location_longitude' => $request->location_longitude,
             'allocation' => $request->allocation,
+            'application' => $request->application,
             'picture' => $picture,
             'picture1' => $picture1,
             'picture2' => $picture2,

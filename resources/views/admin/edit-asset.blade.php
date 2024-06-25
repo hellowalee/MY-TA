@@ -79,12 +79,34 @@
             <input type="text" name="location_longitude" value="{{ $asset->location_longitude }}" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="allocation">Peruntukan</label>
+            <label for="allocation">Status Penggunaan</label>
             <select name="allocation" class="form-control" required>
                 <option value="Sedang Digunakan" {{ $asset->allocation == 'Sedang Digunakan' ? 'selected' : '' }}>Sedang Digunakan</option>
                 <option value="Tidak Sedang Digunakan" {{ $asset->allocation == 'Tidak Sedang Digunakan' ? 'selected' : '' }}>Tidak Sedang Digunakan</option>
                 <option value="Disewakan" {{ $asset->allocation == 'Disewakan' ? 'selected' : '' }}>Disewakan</option>
                 <option value="Lainnya" {{ $asset->allocation == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="application">Penggunaan</label>
+            <select name="application" class="form-control" required>
+                <option value="Pertanian" {{ $asset->application == 'Pertanian' ? 'selected' : '' }}>Pertanian</option>
+                <option value="Perdagangan & Jasa" {{ $asset->application == 'Perdagangan & Jasa' ? 'selected' : '' }}>Perdagangan & Jasa</option>
+                <option value="Pemukiman" {{ $asset->application == 'Pemukiman' ? 'selected' : '' }}>Pemukiman</option>
+                <option value="Fasilitas Umum" {{ $asset->application == 'Fasilitas Umum' ? 'selected' : '' }}>Fasilitas Umum</option>
+                <option value="Pendidikan" {{ $asset->application == 'Pendidikan' ? 'selected' : '' }}>Pendidikan</option>
+                <option value="Lainnya" {{ $asset->application == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Deskripsi</label>
+            <input type="text" name="description" value="{{ $asset->description }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="available_rent">Tersedia Untuk Disewakan</label>
+            <select name="available_rent" class="form-control">
+                <option value="Ya" {{ $asset->available_rent == 'Ya' ? 'selected' : '' }}>Ya</option>
+                <option value="Tidak" {{ $asset->available_rent == 'Tidak' ? 'selected' : '' }}>Tidak</option>
             </select>
         </div>
         <div class="form-group">
