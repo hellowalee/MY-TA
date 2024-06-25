@@ -291,11 +291,34 @@
                     <li>
                     <i class="bx bx-store-alt"></i>
                     <div>
-                        <h5>Alokasi:</h5>
+                        <h5>Status Penggunaan:</h5>
                         <p>{{ $asset->allocation }}</p>
                     </div>
                     </li>
 
+                    <li>
+                    <i class="bx bx-images"></i>
+                    <div>
+                        <h5>Penggunan:</h5>
+                        <p>{{ $asset->application }}</p>
+                    </div>
+                    </li>
+
+                    <li>
+                    <i class="bx bx-store-alt"></i>
+                    <div>
+                        <h5>Deskripsi:</h5>
+                        <p>{{ $asset->description }}</p>
+                    </div>
+                    </li>
+
+                    <li>
+                    <i class="bx bx-images"></i>
+                    <div>
+                        <h5>Tersedia Untuk Disewakan:</h5>
+                        <p>{{ $asset->available_rent }}</p>
+                    </div>
+                    </li>
 
                 </ul>
             </div>
