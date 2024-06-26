@@ -25,6 +25,7 @@
                     <th>Tahun Perolehan</th>
                     <th>Nilai Perolehan</th>
                     <th>Nilai Aset Saat Ini</th>
+                    <th>Nilai Sewa</th>
                     <th>Latitude Lokasi</th>
                     <th>Longitude Lokasi</th>
                     <th>Status Penggunaan</th>
@@ -49,9 +50,11 @@
                             // ubah format angka menjadi format rupiah
                             $asset->acquisition_value = "Rp " . number_format($asset->acquisition_value,2,',','.');
                             $asset->current_asset_value = "Rp " . number_format($asset->current_asset_value,2,',','.');
+                            $asset->rental_value = "Rp " . number_format($asset->rental_value,2,',','.');
                         ?>
                         <td>{{ $asset->acquisition_value }}</td>
                         <td>{{ $asset->current_asset_value }}</td>
+                        <td>{{ $asset->rental_value }}</td>
                         <td>{{ $asset->location_latitude }}</td>
                         <td>{{ $asset->location_longitude }}</td>
                         <td>{{ $asset->allocation }}</td>

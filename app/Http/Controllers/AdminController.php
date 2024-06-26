@@ -111,6 +111,7 @@ class AdminController extends Controller
             'year_of_acquisition' => 'required|integer',
             'acquisition_value' => 'required|string',
             'current_asset_value' => 'required|string',
+            'rental_value' => 'required|string',
             'location_latitude' => 'required|string',
             'location_longitude' => 'required|string',
             'allocation' => 'required|string',
@@ -173,6 +174,7 @@ class AdminController extends Controller
             'year_of_acquisition' => $request->year_of_acquisition,
             'acquisition_value' => $request->acquisition_value,
             'current_asset_value' => $request->current_asset_value,
+            'rental_value' => $request->rental_value,
             'location_latitude' => $request->location_latitude,
             'location_longitude' => $request->location_longitude,
             'allocation' => $request->allocation,
@@ -302,7 +304,7 @@ class AdminController extends Controller
     $sheet = $spreadsheet->getActiveSheet();
 
     // Set judul kolom dan beri warna hijau
-    $columns = ['Jenis Hak Tanah', 'No Sertipikat', 'No Registrasi', 'Jenis Aset', 'Nama Aset', 'NUP', 'Luas Aset', 'Tahun Perolehan', 'Nilai Perolehan', 'Nilai Aset Saat Ini', 'Latitude Lokasi', 'Longitude Lokasi', 'Alokasi', 'Gambar', 'Action'];
+    $columns = ['Jenis Hak Tanah', 'No Sertipikat', 'No Registrasi', 'Jenis Aset', 'Nama Aset', 'NUP', 'Luas Aset', 'Tahun Perolehan', 'Nilai Perolehan', 'Nilai Aset Saat Ini','Nilai Sewa','Latitude Lokasi', 'Longitude Lokasi', 'Alokasi', 'Gambar', 'Action'];
     $columnIndex = 1;
     foreach ($columns as $column) {
         $sheet->setCellValueByColumnAndRow($columnIndex, 1, $column);
@@ -323,6 +325,7 @@ class AdminController extends Controller
         $sheet->setCellValue('H' . $row, $asset->year_of_acquisition);
         $sheet->setCellValue('I' . $row, $asset->acquisition_value);
         $sheet->setCellValue('J' . $row, $asset->current_asset_value);
+        $sheet->setCellValue('K' . $row, $asset->rental_value);
         $sheet->setCellValue('K' . $row, $asset->location_latitude);
         $sheet->setCellValue('L' . $row, $asset->location_longitude);
         $sheet->setCellValue('M' . $row, $asset->allocation);

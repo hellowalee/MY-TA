@@ -71,6 +71,10 @@
             <input type="text" name="current_asset_value" value="{{ $asset->current_asset_value }}" class="form-control" required>
         </div>
         <div class="form-group">
+            <label for="rental_value">Nilai Sewa</label>
+            <input type="text" name='rental_value' value="{{ $asset->rental_value }}" class="form-control" required>
+        </div>
+        <div class="form-group">
             <label for="location_latitude">Latitude Lokasi</label>
             <input type="text" name="location_latitude" value="{{ $asset->location_latitude }}" class="form-control" required>
         </div>

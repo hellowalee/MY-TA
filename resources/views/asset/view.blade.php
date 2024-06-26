@@ -255,6 +255,7 @@
                         // ubah format angka menjadi format rupiah
                         $asset->acquisition_value = "Rp " . number_format($asset->acquisition_value,2,',','.');
                         $asset->current_asset_value = "Rp " . number_format($asset->current_asset_value,2,',','.');
+                        $asset->rental_value = "Rp " . number_format($asset->rental_value,2,',','.');
                     ?>
                     <li>
                     <i class="bx bx-images"></i>
@@ -265,10 +266,18 @@
                     </li>
 
                     <li>
-                        <i class="bx bx-images"></i>
+                        <i class="bx bx-store-alt"></i>
                         <div>
                             <h5>Nilai Aset Saat Ini:</h5>
                             <p>{{ $asset->current_asset_value }}</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <i class="bx bx-images"></i>
+                        <div>
+                            <h5>Nilai Sewa:</h5>
+                            <p>{{ $asset->rental_value }}</p>
                         </div>
                     </li>
 
