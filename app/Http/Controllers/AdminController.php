@@ -179,6 +179,8 @@ class AdminController extends Controller
             'location_longitude' => $request->location_longitude,
             'allocation' => $request->allocation,
             'application' => $request->application,
+            'description' => $request->description,
+            'available_rent' => $request->available_rent,
             'picture' => $picture,
             'picture1' => $picture1,
             'picture2' => $picture2,
